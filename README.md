@@ -1,6 +1,6 @@
 # Monadism
 
-[![npm](https://img.shields.io/npm/v/monadism.svg)](https://www.npmjs.com/package/monadism) [![license](https://img.shields.io/github/license/bkonkle/monadism.svg)](LICENSE)
+[![npm](https://img.shields.io/npm/v/monadism.svg)](https://www.npmjs.com/package/monadism) [![license](https://img.shields.io/github/license/communityfunded/monadism.svg)](LICENSE)
 
 A small set of monadic Types implemented in TypeScript.
 
