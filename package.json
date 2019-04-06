@@ -1,13 +1,15 @@
 {
   "name": "monadism",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "description": "A small set of monadic Types implemented in TypeScript",
   "repository": {
     "type": "git",
     "url": "git@github.com:communityfunded/monadism.git"
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "author": "Community Funded (http://communityfunded.com)",
   "license": "BSD-2-Clause",
   "scripts": {
