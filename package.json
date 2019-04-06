@@ -1,16 +1,18 @@
 {
   "name": "monadism",
   "version": "1.0.0",
+  "main": "lib/index.js",
   "description": "A small set of monadic Types implemented in TypeScript",
   "repository": {
     "type": "git",
     "url": "git@github.com:communityfunded/monadism.git"
   },
+  "files": ["lib"],
   "author": "Community Funded (http://communityfunded.com)",
   "license": "BSD-2-Clause",
   "scripts": {
     "check.types": "yarn build --noEmit",
-    "build": "tsc --pretty --skipLibCheck",
+    "build": "tsc --declaration --pretty --skipLibCheck",
     "build.watch": "yarn build --watch",
     "lint": "tslint --format stylish --project tsconfig.json",
     "test.watch": "NODE_ENV=test jest --watch",
