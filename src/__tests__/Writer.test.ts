@@ -1,9 +1,17 @@
-import {tell, writer} from '../Writer'
+import {tell, listen, writer} from '../Writer'
 
 describe('Writer', () => {
   describe('tell()', () => {
     it('starts a story', () => {
       expect(tell(['a']).equals(writer(['a'], undefined))).toBe(true)
+    })
+  })
+
+  describe('listen()', () => {
+    it('modifies the value to include the changes to the story', () => {
+      const w = writer(['a'], 1)
+
+      expect(listen(w).equals(writer(['a'], w)))
     })
   })
 

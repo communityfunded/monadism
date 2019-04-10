@@ -5,6 +5,8 @@ export const writer = <S, A>(story: S[], value: A) => Writer.writer<S, A>(story,
 
 export const tell = <S>(story: S[]) => Writer.tell<S>(story)
 
+export const listen = <S, A>(w: Writer<S, A>) => Writer.listen<S, A>(w)
+
 /**
  * Simple state machine with history.
  */
@@ -19,6 +21,15 @@ export class Writer<S, A> implements Functor<A>, Eq<Writer<S, A>> {
 
   static writer = <S, A>(story: S[], value: A) => new Writer<S, A>(story, value)
 
+  static listen = <S, A>(w: Writer<S, A>): Writer<S, Writer<S, A>> => new Writer(w.story, w)
+
+  // TODO: static pass = <S, A>(w: Writer<S, Writer<(s: S[]) => S[], A>>): Writer<S, A>
+
+  // TODO: static censor = <S, A>(w: Writer<S, A>, func: (s: S[]) => S[]): Writer<S, A>
+
+  /**
+   * Defines a new story with an empty value.
+   */
   static tell = <S>(story: S[]) => new Writer(story, undefined)
 
   unit = <B>(b: B) => writer<S, B>([], b)
