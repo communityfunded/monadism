@@ -1,3 +1,4 @@
+/* tslint:disable no-use-before-declare */
 import {Eq, Nil, Monad, eq} from './Functional'
 import Maybe from './Maybe'
 
@@ -11,7 +12,6 @@ export const exists = <T>(t: T) => t !== null && t !== undefined
 /**
  * The primary ways to create new Either instances.
  */
-/* tslint:disable no-use-before-declare - Either is available inside the function bodies */
 
 export const Left = <L, R>(l: L) => Either.Left<L, R>(l)
 

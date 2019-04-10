@@ -72,7 +72,7 @@ export function eq<A extends Eq<A>> (a: A, b: A): boolean {
     return false
   }
 
-  if (a.equals) {
+  if (a && a.equals) {
     return a.equals(b)
   }
 
