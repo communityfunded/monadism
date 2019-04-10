@@ -5,7 +5,7 @@ describe('Maybe', () => {
     it('takes an optional that may be null or undefined and returns a Maybe', () => {
       expect(Just(2).getOr(1)).toEqual(2)
       expect(Nothing().getOr(1)).toEqual(1)
-      expect(maybe<number>(null).getOr(1)).toEqual(1)
+      expect(maybe<number>(null).getOr(1)).toEqual(1) // tslint:disable-line no-null-keyword
       expect(maybe<number>(undefined).getOr(1)).toEqual(1)
     })
   })
@@ -62,6 +62,15 @@ describe('Maybe', () => {
 
       expect(notSquared.toNullable()).toEqual(5)
     })
+
+    it('handles more cases', () => {
+      const f = (n: number) => Just(n * 2)
+      const g = () => Nothing<number>() // tslint:disable-line no-unnecessary-callback-wrapper
+
+      expect(Just(2).then(f).equals(Just(4))).toBe(true)
+      expect(Just(2).then(g).equals(Nothing())).toBe(true)
+      expect(Nothing<number>().then(f).equals(Nothing())).toBe(true)
+    })
   })
 
   describe('apply()', () => {
@@ -106,6 +115,17 @@ describe('Maybe', () => {
 
       expect(altResult.toNullable()).toEqual([{type: 'rubber'}])
     })
+
+    it('handles some more cases', () => {
+      const f = (n: number) => n * 2
+
+      expect(Just(2).apply(Just(f)).equals(Just(4))).toBe(true)
+      expect(Nothing<number>().apply(Just(f)).equals(Nothing())).toBe(true)
+      expect(Just(2).apply(Nothing<(a: number) => number>()).equals(Nothing())).toBe(true)
+      expect(Just(2).apply(Just(f)).equals(Just(4))).toBe(true)
+      expect(maybe(2).apply(Just(f)).equals(Just(4))).toBe(true)
+      expect(maybe<number>(undefined).apply(Just(f)).equals(Nothing())).toBe(true)
+    })
   })
 
   describe('prop()', () => {
@@ -143,6 +163,49 @@ describe('Maybe', () => {
       const elf = maybeElf.getOr(defaultElf)
 
       expect(elf).toBe(defaultElf)
+    })
+  })
+
+  describe('equals()', () => {
+    it('checks equality', () => {
+      expect(Nothing().equals(Nothing())).toBe(true)
+      expect(Just(2).equals(Just(2))).toBe(true)
+    })
+
+    it('checks inequality', () => {
+      expect(Nothing<number>().equals(Just(1))).toBe(false)
+      expect(Just(1).equals(Nothing<number>())).toBe(false)
+      expect(Just(2).equals(Just(1))).toBe(false)
+      expect(Just(1).equals(Just(2))).toBe(false)
+    })
+  })
+
+  describe('alt()', () => {
+    it('returns the first Just encountered ', () => {
+      expect(Just(1).alt(Just(2)).equals(Just(1))).toBe(true)
+      expect(Just(2).alt(Nothing()).equals(Just(2))).toBe(true)
+      expect(Nothing<number>().alt(Just(1)).equals(Just(1))).toBe(true)
+      expect(Nothing().alt(Nothing()).equals(Nothing())).toBe(true)
+    })
+  })
+
+  describe('extend()', () => {
+    it('applies Maybe values correctly', () => {
+      const f = (m: Maybe<number>) => m.getOr(0)
+
+      expect(Just(2).extend(f).equals(Just(2))).toBe(true)
+      expect(Nothing<number>().extend(f).equals(Nothing())).toBe(true)
+      expect(maybe(2).extend(f).equals(Just(2))).toBe(true)
+    })
+  })
+
+  describe('fold()', () => {
+    it('applies a function to each case in the data structure', () => {
+      const f = 'none'
+      const g = (s: string) => `some${s.length}`
+
+      expect(Nothing<string>().fold(f, g)).toEqual('none')
+      expect(Just('abc').fold(f, g)).toEqual('some3')
     })
   })
 })

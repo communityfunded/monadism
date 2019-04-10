@@ -1,4 +1,4 @@
-import {Nil, Monad} from './Functional'
+import {Eq, Extend, Nil, Monad, eq} from './Functional'
 
 /**
  * The primary ways to create new Maybe instances.
@@ -14,7 +14,7 @@ export const maybe = <A>(value: A | Nil) => Maybe.fromNullable<A>(value)
 /**
  * A class to represent an optional value with a convenient chaining syntax and strong type safety.
  */
-export default class Maybe<A> implements Monad<A> {
+export default class Maybe<A> implements Monad<A>, Eq<Maybe<A>>, Extend<A> {
   private option: [A?]
 
   /**
@@ -71,10 +71,11 @@ export default class Maybe<A> implements Monad<A> {
   getOrThrow = () => this.getOrThrowMessage('Maybe was Nothing')
 
   /**
-   * Our name for `flatMap`. The distinction in many functional languages is that `andThen` runs
-   * side effects where `flatMap` is pure. In TypeScript we use `then` as convenient naming for
-   * either `flatMap` or `andThen` because we have no idea whether you're running side effects in
-   * your callback function or not.
+   * Our name for `flatMap`. Allows sequencing of Maybe values and functions that return a Maybe.
+   * The distinction in many functional languages is that `andThen` runs side effects where
+   * `flatMap` is pure. In TypeScript we use `then` as convenient naming for either `flatMap` or
+   * `andThen` because we have no idea whether you're running side effects in your callback function
+   * or not.
    */
   then = <B>(func: (a: A) => Maybe<B>): Maybe<B> => {
     const val = this.toNullable()
@@ -85,6 +86,12 @@ export default class Maybe<A> implements Monad<A> {
 
     return Nothing()
   }
+
+  /**
+   * Allos sequencing of Maybe values and functions that accept a Maybe and return a non-Maybe
+   * value.
+   */
+  extend = <B>(func: (a: Maybe<A>) => B): Maybe<B> => maybe(func(this))
 
   /**
    * Run a side effect if the value is Just something.
@@ -120,7 +127,8 @@ export default class Maybe<A> implements Monad<A> {
   when = <B>(b: B): Maybe<B> => this.map(_ => b)
 
   /**
-   * Unpacks a Maybe for a function from A to B into a function from Maybe A to Maybe B.
+   * Unpacks a Maybe for a function from A to B into a function from Maybe A to Maybe B. Allows
+   * functions contained within a Just to transform a value contained within a Just.
    */
   apply = <B>(m: Maybe<(a: A) => B>): Maybe<B> => this.then(val => m.map(func => func(val)))
 
@@ -131,4 +139,38 @@ export default class Maybe<A> implements Monad<A> {
   prop = <B extends A[keyof A]>(key: keyof A): Maybe<B> => this.then(
     val => (val && key in val) ? Just(val[key] as B) : Nothing()
   )
+
+  /**
+   * If the value is Nothing, returns false. If the value is Just something, returns the Boolean
+   * value of something.
+   */
+  equals = (m: Maybe<A>): boolean => {
+    const a = this.toNullable()
+    const b = m.toNullable()
+
+    return !a ? !b : !b ? false : eq(a, b)
+  }
+
+  /**
+   * The first Maybe that is Just something is returned, otherwise Nothing is returned.
+   */
+  alt = (m: Maybe<A>): Maybe<A> => {
+    const a = this.toNullable()
+    const b = m.toNullable()
+
+    if (a) {
+      return Just(a)
+    }
+
+    if (b) {
+      return Just(b)
+    }
+
+    return Nothing()
+  }
+
+  /**
+   * Apply a function to each case in the data structure.
+   */
+  fold = <B>(b: B, func: (a: A) => B): B => this.map(func).getOr(b)
 }
