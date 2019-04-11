@@ -32,7 +32,7 @@ const {Just, Nothing, maybe} = require('monadism')
 
 ## Docs
 
-* [Maybe](docs/Maybe.md)
+* [Maybe](https://communityfunded.github.io/monadism/classes/_maybe_.maybe.html)
 * Either (docs coming soon)
 * Writer (docs coming soon)
 * Signal (docs coming soon) - ported from [purescript-signal]
