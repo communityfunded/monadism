@@ -21,7 +21,7 @@ export const maybe = <A>(value: A | Nil) => Maybe.fromNullable<A>(value)
 
 /**
  * A Maybe represents an optional value with a convenient chaining syntax and strong type safety.
- * To create one, use the top-level constructors [[Just]], [[Nothing]], or [[maybe]].
+ * To create one, use the top-level constructors [[Just]], or [[Nothing]].
  *
  * ```ts
  * import {Just, Maybe, Nothing} from 'monadism'
