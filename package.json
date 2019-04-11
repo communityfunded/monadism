@@ -16,7 +16,7 @@
     "check.types": "yarn build --noEmit",
     "build": "tsc --declaration --pretty --skipLibCheck",
     "build.watch": "yarn build --watch",
-    "docs.config": "cp .gh-pages.yaml docs/_config.yaml",
+    "docs.config": "cp .gh-pages.yml docs/_config.yml",
     "docs.build": "typedoc --out docs src --exclude \"**/*+(TestSetup|.test).ts\" --name Monadism; yarn docs.config",
     "lint": "tslint --format stylish --project tsconfig.json",
     "test.watch": "NODE_ENV=test jest --watch",
