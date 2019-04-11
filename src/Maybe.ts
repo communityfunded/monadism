@@ -1,15 +1,18 @@
-import {Eq, Extend, Nil, Monad, eq} from './Functional'
+import {Eq, Extend, Nil, Monad, eq, exists} from './Functional'
 
-/**
+/***
  * The primary ways to create new Maybe instances.
  */
-/* tslint:disable no-use-before-declare - Maybe is available inside the function bodies */
+
+/* tslint:disable no-use-before-declare */
 
 export const Just = <A>(value: A) => Maybe.Just<A>(value)
 
 export const Nothing = <A>() => Maybe.Nothing<A>()
 
 export const maybe = <A>(value: A | Nil) => Maybe.fromNullable<A>(value)
+
+/* tslint:enable no-use-before-declare */
 
 /**
  * A class to represent an optional value with a convenient chaining syntax and strong type safety.
@@ -21,8 +24,8 @@ export default class Maybe<A> implements Monad<A>, Eq<Maybe<A>>, Extend<A> {
    * This is not intended to be used directly. Use `Just`, `Nothing`, or `maybe` exported at the
    * top of the file.
    */
-  private constructor (value: A | Nil) {
-    this.option = value ? [value] : []
+  private constructor (value?: A | Nil) {
+    this.option = exists(value) ? [value!] : []
   }
 
   /**
@@ -30,7 +33,7 @@ export default class Maybe<A> implements Monad<A>, Eq<Maybe<A>>, Extend<A> {
    */
   static Just = <A>(value: A) => new Maybe<A>(value)
 
-  static Nothing = <A>() => new Maybe<A>(undefined)
+  static Nothing = <A>() => new Maybe<A>()
 
   static fromNullable = <A>(value: A | Nil) => new Maybe<A>(value)
 
@@ -57,8 +60,8 @@ export default class Maybe<A> implements Monad<A>, Eq<Maybe<A>>, Extend<A> {
   getOrThrowMessage = (message: string) => {
     const val = this.toNullable()
 
-    if (val) {
-      return val
+    if (exists(val)) {
+      return val as A
     }
 
     throw new Error(message)
@@ -80,8 +83,8 @@ export default class Maybe<A> implements Monad<A>, Eq<Maybe<A>>, Extend<A> {
   then = <B>(func: (a: A) => Maybe<B>): Maybe<B> => {
     const val = this.toNullable()
 
-    if (val) {
-      return func(val)
+    if (exists(val)) {
+      return func(val!)
     }
 
     return Nothing()
@@ -108,7 +111,7 @@ export default class Maybe<A> implements Monad<A>, Eq<Maybe<A>>, Extend<A> {
   unless = (callback: () => void): Maybe<A> => {
     const val = this.toNullable()
 
-    if (!val) {
+    if (!exists(val)) {
       callback()
     }
 
@@ -158,12 +161,12 @@ export default class Maybe<A> implements Monad<A>, Eq<Maybe<A>>, Extend<A> {
     const a = this.toNullable()
     const b = m.toNullable()
 
-    if (a) {
-      return Just(a)
+    if (exists(a)) {
+      return Just(a as A)
     }
 
-    if (b) {
-      return Just(b)
+    if (exists(b)) {
+      return Just(b as A)
     }
 
     return Nothing()
