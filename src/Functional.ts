@@ -1,5 +1,14 @@
 export type Nil = null | undefined
 
+export type Empty<A> = A & {_tag?: 'EMPTY'}
+
+/**
+ * Monoid provides for Types that can be "empty"
+ */
+export interface Monoid<A> {
+  empty: A
+}
+
 /**
  * Eq provides the `equals` function for measuring equality.
  */
@@ -51,11 +60,6 @@ export interface Extend<A> extends Apply<A> {
 export interface Foldable<A> {
   fold <B>(b: B, func: (a: A) => B): B
 }
-
-/**
- *
- */
-
 /***
  * Utils
  */
@@ -78,3 +82,10 @@ export function eq<A extends Eq<A>> (a: A, b: A): boolean {
 
   return a === b
 }
+
+/**
+ * Cast a string tag as an empty value, to represent emptiness without undefined
+ */
+export const empty = <A>() => undefined as unknown as Empty<A>
+
+export const exists = <T>(t: T) => t !== null && t !== undefined

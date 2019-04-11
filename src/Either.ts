@@ -1,5 +1,4 @@
-/* tslint:disable no-use-before-declare */
-import {Eq, Nil, Monad, eq} from './Functional'
+import {Eq, Nil, Monad, eq, empty, exists} from './Functional'
 import Maybe from './Maybe'
 
 export enum EitherType {
@@ -7,11 +6,11 @@ export enum EitherType {
   Right,
 }
 
-export const exists = <T>(t: T) => t !== null && t !== undefined
-
-/**
+/***
  * The primary ways to create new Either instances.
  */
+
+/* tslint:disable no-use-before-declare */
 
 export const Left = <L, R>(l: L) => Either.Left<L, R>(l)
 
@@ -33,23 +32,32 @@ export const either = <L, R>(l: L | Nil, r: R | Nil) => {
   return Right<L, R>(r!)
 }
 
+/* tslint:enable no-use-before-declare */
+
 /**
  * A class to represent something that can be one value or the other.
  */
 export default class Either<L, R> implements Monad<R>, Eq<Either<L, R>> {
   private type: EitherType
-  private left: L | Nil
-  private right: R | Nil
+  private left: L
+  private right: R
+  private emptyLeft: L
+  private emptyRight: R
 
-  private constructor (type: EitherType, l: L | Nil, r: R | Nil) {
+  private constructor (type: EitherType, values: {l?: L | Nil, r?: R | Nil}) {
+    const {l, r} = values
+
+    this.emptyLeft = empty<L>()
+    this.emptyRight = empty<R>()
+
     this.type = type
-    this.left = l
-    this.right = r
+    this.left = l || this.emptyLeft
+    this.right = r || this.emptyRight
   }
 
-  static Left = <L, R>(l: L) => new Either<L, R>(EitherType.Left, l, undefined)
+  static Left = <L, R>(l: L) => new Either<L, R>(EitherType.Left, {l})
 
-  static Right = <L, R>(r: R) => new Either<L, R>(EitherType.Right, undefined, r)
+  static Right = <L, R>(r: R) => new Either<L, R>(EitherType.Right, {r})
 
   /**
    * If the value is Just something, turn it into a Right. If the value is Nothing, use the

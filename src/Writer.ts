@@ -1,16 +1,35 @@
-import {Eq, Functor, eq} from './Functional'
+import {Eq, Functor, Monoid, eq, empty} from './Functional'
+
+/***
+ * The primary ways to create new Writer instances.
+ */
 
 /* tslint:disable no-use-before-declare */
-export const writer = <S, A>(story: S[], value: A) => Writer.writer<S, A>(story, value)
-
-export const tell = <S>(story: S[]) => Writer.tell<S>(story)
-
-export const listen = <S, A>(w: Writer<S, A>) => Writer.listen<S, A>(w)
 
 /**
- * Simple state machine with history.
+ * Creates a new Writer with a story and a value.
  */
-export class Writer<S, A> implements Functor<A>, Eq<Writer<S, A>> {
+export const writer = <S, A>(story: S[], value: A) => Writer.writer<S, A>(story, value)
+
+/**
+ * Creates a new Writer with an initial story and an empty value.
+ */
+export const tell = <S, A>(story: S[]) => Writer.tell<S, A>(story)
+
+/**
+ * Creates a new Writer with an empty story and an initial value.
+ */
+export const unit = <S, A>(a: A) => Writer.unit<S, A>(a)
+
+/* tslint:enable no-use-before-declare */
+
+/**
+ * The Writer monad provides the ability to accumulate a secondary value in addition to the return
+ * value of a computation.
+ */
+export default class Writer<S, A> implements Monoid<A>, Functor<A>, Eq<Writer<S, A>> {
+  empty = empty<A>()
+
   private story: S[]
   private value: A
 
@@ -21,26 +40,46 @@ export class Writer<S, A> implements Functor<A>, Eq<Writer<S, A>> {
 
   static writer = <S, A>(story: S[], value: A) => new Writer<S, A>(story, value)
 
-  static listen = <S, A>(w: Writer<S, A>): Writer<S, Writer<S, A>> => new Writer(w.story, w)
+  static tell = <S, A>(story: S[]) => new Writer(story, empty<A>())
 
-  // TODO: static pass = <S, A>(w: Writer<S, Writer<(s: S[]) => S[], A>>): Writer<S, A>
+  static unit = <S, A>(a: A) => new Writer<S, A>([], a)
 
-  // TODO: static censor = <S, A>(w: Writer<S, A>, func: (s: S[]) => S[]): Writer<S, A>
+  isEmpty = () => this.value === this.empty
 
   /**
-   * Defines a new story with an empty value.
+   * Returns the value at the end of a sequence of Writer computations.
    */
-  static tell = <S>(story: S[]) => new Writer(story, undefined)
+  run = () => this.value
 
-  unit = <B>(b: B) => writer<S, B>([], b)
+  /**
+   * Returns the story at the end of a sequence of Writer computations.
+   */
+  exec = () => this.story
 
+  /**
+   * Checks equality between two Writers of the same type.
+   */
   equals = (other: Writer<S, A>) => eq(this.story, other.story) && eq(this.value, other.value)
 
-  map = <B>(func: (a: A) => B) => this.then(value => this.unit<B>(func(value)))
+  /**
+   * Modify the Writer's story by applying a function.
+   */
+  censor = (func: (s: S[]) => S[]): Writer<S, A> => writer(func(this.story), this.value)
 
+  /**
+   * Applies a function to the accumulated value of a Writer.
+   */
+  map = <B>(func: (a: A) => B): Writer<S, B> => this.then(value => unit<S, B>(func(value)))
+
+  /**
+   * Applies a function stored as the value of another Writer to the value of this Writer.
+   */
   apply = <B>(func: Writer<S, (m: A) => B>): Writer<S, B> =>
     writer(this.story.concat(func.story), func.value(this.value))
 
+  /**
+   * Binds a new operation to this Writer.
+   */
   then = <B>(func: (a: A) => Writer<S, B>): Writer<S, B> => {
     const wb = func(this.value)
 
@@ -48,7 +87,12 @@ export class Writer<S, A> implements Functor<A>, Eq<Writer<S, A>> {
   }
 
   /**
-   * Run a side effect on the value
+   * Modifies the Writer to include changes to the value.
+   */
+  listen = <B>(func: (w: Writer<S, A>) => B): Writer<S, B> => writer(this.story, func(this))
+
+  /**
+   * Run a side effect on the value.
    */
   on = (callback: (a: A) => void) => this.map(val => {
     callback(val)
