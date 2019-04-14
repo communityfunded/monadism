@@ -33,14 +33,14 @@ const {Just, Nothing, maybe} = require('monadism')
 ## Docs
 
 * [Maybe](https://communityfunded.github.io/monadism/classes/_maybe_.maybe.html)
-  * Represent optional values without `null` or `undefined`.
+  * Represent optional values (A) without `null` or `undefined`.
 * [Either](https://communityfunded.github.io/monadism/classes/_either_.either.html)
-  * A value that can be either the Type on the Left, or the Type on the Right.
+  * A value that can be either the type on the Left, or the type on the Right.
 * [Writer](https://communityfunded.github.io/monadism/classes/_writer_.writer.html)
-  * Accumulate a secondary Story value alongside the return value of a computation.
+  * Accumulate a secondary story (S) value alongside the return value (A) of a computation.
 * [Signal](https://communityfunded.github.io/monadism/classes/_signal_signal_.signal.html)
   * A lightweight FRP-like class heavily inspired by the Elm Signal.
-  * Ported from [purescript-signal] by [Bodil Stokke](https://github.com/bodil)
+  * Ported from [purescript-signal] by [Bodil Stokke](https://github.com/bodil).
 
 ## Development
 
@@ -72,7 +72,9 @@ yarn build.wach
 
 ### Signal
 
-### Mario
+### Monadism Mario
+
+[examples/signal/mario](examples/signal/mario)
 
 An example of a Mario game screen using Signals to manage user input and game state. Adapted from [Michael Ficarra](https://github.com/michaelficarra)'s example at https://github.com/michaelficarra/purescript-demo-mario
 

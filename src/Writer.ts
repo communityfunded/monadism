@@ -1,4 +1,5 @@
 import {Eq, Functor, Monoid, eq, empty} from './Functional'
+
 /* tslint:disable no-use-before-declare */
 
 /**
@@ -47,7 +48,7 @@ export default class Writer<S, A> implements Monoid<A>, Functor<A>, Eq<Writer<S,
   /**
    * Returns the value at the end of a sequence of Writer computations.
    */
-  run = () => this.value
+  eval = () => this.value
 
   /**
    * Returns the story at the end of a sequence of Writer computations.
