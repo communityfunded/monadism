@@ -1,29 +1,5 @@
 import {Eq, Extend, Nil, Monad, eq, exists} from './Functional'
 
-/* tslint:disable no-use-before-declare */
-
-/**
- * Wrap a value in a Maybe.
- */
-export const Just = <A>(value: A) => Maybe.Just<A>(value)
-
-/**
- * Return an empty Maybe.
- */
-export const Nothing = <A>() => Maybe.Nothing<A>()
-
-/**
- * Create a Maybe from a nullable value.
- *
- * ```ts
- * maybe(2).getOr(1)         // 2
- * maybe(undefined).getOr(1) // 1
- * ```
- */
-export const maybe = <A>(value: A | Nil) => Maybe.fromNullable<A>(value)
-
-// tslint:enable no-use-before-declare
-
 /**
  * A Maybe represents an optional value with a convenient chaining syntax and strong type safety.
  * To create one, use the top-level constructors [[Just]], or [[Nothing]].
@@ -59,7 +35,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * The internal value of the Maybe
    * @ignore
    */
-  private option: [A?]
+  private readonly option: [A?]
 
   /**
    * Not intended to be used directly. Use `Just`, `Nothing`, or `maybe` exported at the
@@ -70,14 +46,31 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
     this.option = exists(value) ? [value!] : []
   }
 
-  /** @ignore */
+  /**
+   * Wrap a value in a Maybe.
+   */
   static Just = <A>(value: A) => new Maybe<A>(value)
 
-  /** @ignore */
+  /**
+   * Return an empty Maybe.
+   */
   static Nothing = <A>() => new Maybe<A>()
 
-  /** @ignore */
-  static fromNullable = <A>(value: A | Nil) => new Maybe<A>(value)
+  /**
+   * Create a Maybe from a nullable value.
+   *
+   * ```ts
+   * maybe(2).getOr(1)         // 2
+   * maybe(undefined).getOr(1) // 1
+   * ```
+   */
+  static maybe = <A>(value: A | Nil) => new Maybe<A>(value)
+
+  /**
+   * An alias for `maybe`.
+   */
+  // tslint:disable-next-line - member-ordering
+  static fromNullable = Maybe.maybe
 
   /**
    * Use of this function should be discouraged. Use one of the stronger methods below in most
@@ -163,7 +156,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * ```ts
    * const f = (m: Maybe<number>) => m.getOr(0)
    *
-   * Just(2).extend(f) // Just(2)
+   * Just(2).extend(f)           // Just(2)
    * Nothing<number>().extend(f) // Nothing()
    * ```
    */
@@ -261,7 +254,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * The first Maybe that is Just something is returned, otherwise Nothing is returned.
    *
    * ```ts
-   * Just(1).alt(Just(2)) // Just(1)
+   * Just(1).alt(Just(2))   // Just(1)
    * Just(2).alt(Nothing()) // Just(2)
    * ```
    */
@@ -288,8 +281,14 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * const g = (s: string) => `some${s.length}`
    *
    * Nothing<string>().fold(f, g)) // 'none'
-   * Just('abc').fold(f, g)) // 'some3
+   * Just('abc').fold(f, g))       // 'some3
    * ```
    */
   fold = <B>(b: B, func: (value: A) => B): B => this.map(func).getOr(b)
 }
+
+export const Just = Maybe.Just
+
+export const Nothing = Maybe.Nothing
+
+export const maybe = Maybe.maybe

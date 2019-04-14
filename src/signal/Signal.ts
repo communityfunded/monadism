@@ -2,37 +2,6 @@ import {Monad, empty, eq} from '../Functional'
 
 export type Time = number & {_tag?: 'Time'}
 
-/* tslint:disable no-use-before-declare */
-
-/**
- * Create a signal with a constant value.
- */
-export const constant = <A>(value: A) => Signal.constant(value)
-
-/**
- * Given a Signal of effects with no return value, run each effect as it comes in.
- */
-export const run = <A extends Function>(s: Signal<A>) => Signal.run(s)
-
-/**
- * Takes a signal of effects of a, and produces an effect which returns a signal which will take
- * each effect produced by the input signal, run it, and yield its returned value.
- */
-export const unwrap = <A extends Function>(s: Signal<A>) => Signal.unwrap(s)
-
-/**
- * Creates a signal which yields the current time (according to now) every given number of
- * milliseconds.
- */
-export const every = (interval: number) => Signal.every(interval)
-
-/**
- * Creates a channel, which allows you to feed arbitrary values into a signal.
- */
-export const channel = <A>(a: A) => Channel.channel(a)
-
-/* tslint:enable no-use-before-declare */
-
 /**
  * Signal is a lightweight FRP-like Monad heavily inspired by the Elm Signal implementation. It
  * was ported from an original PureScript implementation created by
@@ -45,17 +14,30 @@ export const channel = <A>(a: A) => Channel.channel(a)
  * @typeparam A - The Type of value the Signal yields
  */
 export default class Signal<A> implements Monad<A> {
+  /** @ignore */
   private value: A
-  private subscriptions: ((a: A) => void)[] = []
+  /** @ignore */
+  private readonly subscriptions: ((a: A) => void)[] = []
 
+  /** @ignore */
   private constructor (value: A) {
     this.value = value
   }
 
+  /**
+   * Create a signal with a constant value.
+   */
   static constant = <A>(value: A) => new Signal<A>(value)
 
+  /**
+   * Given a Signal of effects with no return value, run each effect as it comes in.
+   */
   static run = <A extends Function>(s: Signal<A>) => s.subscribe(value => value())
 
+  /**
+   * Takes a signal of effects of a, and produces an effect which returns a signal which will take
+   * each effect produced by the input signal, run it, and yield its returned value.
+   */
   static unwrap = <A extends Function>(s: Signal<A>) => {
     const out = constant<A>(s.get()())
 
@@ -66,6 +48,10 @@ export default class Signal<A> implements Monad<A> {
     return out
   }
 
+  /**
+   * Creates a signal which yields the current time (according to now) every given number of
+   * milliseconds.
+   */
   static every = (interval: number): Signal<Time> => {
     const out = constant(Date.now())
 
@@ -305,9 +291,11 @@ export default class Signal<A> implements Monad<A> {
     return out
   }
 
-  private get = () => this.value
+  /** @ignore */
+  private readonly get = () => this.value
 
-  private set = (value: A) => {
+  /** @ignore */
+  private readonly set = (value: A) => {
     this.value = value
 
     for (const sub of this.subscriptions) {
@@ -315,45 +303,18 @@ export default class Signal<A> implements Monad<A> {
     }
   }
 
-  private subscribe = (sub: (a: A) => void) => {
+  /** @ignore */
+  private readonly subscribe = (sub: (a: A) => void) => {
     this.subscriptions.push(sub)
 
     sub(this.get())
   }
 }
 
-/**
- * A Channel allows you to feed arbitrary values into a [[Signal]]. This is the simplest way to get
- * started with Signals.
- *
- * ```ts
- * const chan = channel('Hello, Bodil!')
- * const hello = chan.subscribe()
- *
- * // For each value sent to the Channel, transform it to uppercase and then log it.
- * hello.map(value => value.toUpperCase()).on(console.log)
- *
- * chan.send('This is great!')
- * ```
- */
-export class Channel<A> {
-  private signal: Signal<A>
+export const constant = Signal.constant
 
-  private constructor (val: A) {
-    this.signal = constant(val)
-  }
+export const run = Signal.run
 
-  static channel = <A>(val: A) => new Channel<A>(val)
+export const unwrap = Signal.unwrap
 
-  /**
-   * Sends a value to a given channel.
-   */
-  // @ts-ignore - exception to enable Channel functionality
-  send = (val: A) => this.signal.set(val)
-
-  /**
-   * Returns the signal of the values sent to the channel.
-   */
-  subscribe = () => this.signal
-}
-
+export const every = Signal.every

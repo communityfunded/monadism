@@ -29,9 +29,12 @@ export const unit = <S, A>(a: A) => Writer.unit<S, A>(a)
 export default class Writer<S, A> implements Eq<Writer<S, A>>, Monoid<A>, Monad<A> {
   empty = empty<A>()
 
-  private story: S[]
-  private value: A
+  /** @ignore */
+  private readonly story: S[]
+  /** @ignore */
+  private readonly value: A
 
+  /** @ignore */
   private constructor(story: S[], value: A) {
     this.story = story
     this.value = value

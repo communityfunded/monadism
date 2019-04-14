@@ -1,9 +1,9 @@
 import wait from 'waait'
 
-import {channel, constant, every} from '../Signal'
+import {constant, every} from '../Signal'
 import Maybe, {Just, maybe} from '../../Maybe'
 
-const tick = <A>(initial: number, interval: number, values: A[]) => {
+export const tick = <A>(initial: number, interval: number, values: A[]) => {
   const vals = values.slice()
 
   const out = constant(maybe(vals.shift()))
@@ -209,28 +209,6 @@ describe('Signal', () => {
       const result = check.mock.calls.map(call => call[0])
 
       expect(result).toEqual([false, true, false])
-    })
-  })
-})
-
-describe('Channel', () => {
-  describe('subscribe()', () => {
-    it('yields when we send to the Channel', async () => {
-      const check = jest.fn()
-      const chan = channel(1)
-      const ticker = tick(1, 1, [2, 3, 4]).map(a => a.getOrThrow())
-
-      ticker.on(chan.send)
-
-      chan.subscribe()
-        // @ts-ignore - test function
-        .subscribe(check)
-
-      await wait(50)
-
-      const result = check.mock.calls.map(call => call[0])
-
-      expect(result).toEqual([2, 3, 4])
     })
   })
 })

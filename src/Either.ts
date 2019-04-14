@@ -6,40 +6,22 @@ export enum EitherType {
   Right,
 }
 
-/* tslint:disable no-use-before-declare */
-
-export const Left = <L, R>(l: L) => Either.Left<L, R>(l)
-
-export const Right = <L, R>(r: R) => Either.Right<L, R>(r)
-
-export const either = <L, R>(l: L | Nil, r: R | Nil) => {
-  if (exists(l) && exists(r)) {
-    throw new Error('Cannot construct an Either with both a Left and a Right')
-  }
-
-  if (!exists(l) && !exists(r)) {
-    throw new Error('Cannot construct an Either with neither a Left or a Right')
-  }
-
-  if (exists(l) && !exists(r)) {
-    return Left<L, R>(l!)
-  }
-
-  return Right<L, R>(r!)
-}
-
-/* tslint:enable no-use-before-declare */
-
 /**
  * A class to represent something that can be one value or the other.
  */
 export default class Either<L, R> implements Monad<R>, Eq<Either<L, R>> {
-  private type: EitherType
-  private left: L
-  private right: R
-  private emptyLeft: L
-  private emptyRight: R
+  /** @ignore */
+  private readonly type: EitherType
+  /** @ignore */
+  private readonly left: L
+  /** @ignore */
+  private readonly right: R
+  /** @ignore */
+  private readonly emptyLeft: L
+  /** @ignore */
+  private readonly emptyRight: R
 
+  /** @ignore */
   private constructor (type: EitherType, values: {l?: L | Nil, r?: R | Nil}) {
     const {l, r} = values
 
@@ -85,11 +67,31 @@ export default class Either<L, R> implements Monad<R>, Eq<Either<L, R>> {
       ? Left<L, B>(m.left === m.emptyLeft ? this.left! : m.left)
       : m.isLeft()
         ? Left<L, B>(m.left!)
-        : Right(m.right!(this.right!))
+        : Right(m.right(this.right!))
 
   equals = (m: Either<L, R>) => this.isLeft()
     ? m.isLeft() && eq(this.left, m.left)
     : m.isRight() && eq(this.right, m.right)
 
   getOr = (r: R): R => this.isLeft() ? r : this.right!
+}
+
+export const Left = Either.Left
+
+export const Right = Either.Right
+
+export const either = <L, R>(l: L | Nil, r: R | Nil) => {
+  if (exists(l) && exists(r)) {
+    throw new Error('Cannot construct an Either with both a Left and a Right')
+  }
+
+  if (!exists(l) && !exists(r)) {
+    throw new Error('Cannot construct an Either with neither a Left or a Right')
+  }
+
+  if (exists(l) && !exists(r)) {
+    return Left<L, R>(l!)
+  }
+
+  return Right<L, R>(r!)
 }

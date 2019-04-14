@@ -4,7 +4,7 @@
  */
 export default class State<S, A> {
   /** @ignore */
-  private run: (s: S) => [A, S]
+  private readonly run: (s: S) => [A, S]
 
   /** @ignore */
   private constructor (run: (s: S) => [A, S]) {

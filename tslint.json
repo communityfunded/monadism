@@ -51,6 +51,7 @@
     "no-string-throw": true,
     "no-submodule-imports": false,
     "no-suspicious-comment": false,
+    "no-use-before-declare": false,
     "no-unsafe-any": false,
     "no-unused-variable": false,
     "no-var-requires": true,
