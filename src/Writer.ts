@@ -1,24 +1,5 @@
 import {Eq, Monad, Monoid, eq, empty} from './Functional'
 
-/* tslint:disable no-use-before-declare */
-
-/**
- * Creates a new Writer with a story and a value.
- */
-export const writer = <S, A>(story: S[], value: A) => Writer.writer<S, A>(story, value)
-
-/**
- * Creates a new Writer with an initial story and an empty value.
- */
-export const tell = <S, A>(story: S[]) => Writer.tell<S, A>(story)
-
-/**
- * Creates a new Writer with an empty story and an initial value.
- */
-export const unit = <S, A>(a: A) => Writer.unit<S, A>(a)
-
-/* tslint:enable no-use-before-declare */
-
 /**
  * The Writer monad provides the ability to accumulate a secondary Story value in addition to the
  * return value of a computation.
@@ -40,10 +21,19 @@ export default class Writer<S, A> implements Eq<Writer<S, A>>, Monoid<A>, Monad<
     this.value = value
   }
 
+  /**
+   * Creates a new Writer with a story and a value.
+   */
   static writer = <S, A>(story: S[], value: A) => new Writer<S, A>(story, value)
 
+  /**
+   * Creates a new Writer with an initial story and an empty value.
+   */
   static tell = <S, A>(story: S[]) => new Writer(story, empty<A>())
 
+  /**
+   * Creates a new Writer with an empty story and an initial value.
+   */
   static unit = <S, A>(a: A) => new Writer<S, A>([], a)
 
   isEmpty = () => this.value === this.empty
@@ -102,3 +92,9 @@ export default class Writer<S, A> implements Eq<Writer<S, A>>, Monoid<A>, Monad<
     return val
   })
  }
+
+export const writer = Writer.writer
+
+export const tell = Writer.tell
+
+export const unit = Writer.unit

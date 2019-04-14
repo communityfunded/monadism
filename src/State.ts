@@ -11,10 +11,28 @@ export default class State<S, A> {
     this.run = run
   }
 
-  /** @ignore */
+  /**
+   * Get the current state.
+   *
+   * ```ts
+   * const state = get()
+   *
+   * state.eval(1) // 1
+   * state.exec(1) // 1
+   * ```
+   */
   static get = <S>(): State<S, S> => new State(s => [s, s])
 
-  /** @ignore */
+  /**
+   * Set the state.
+   *
+   * ```ts
+   * const state = put(2)
+   *
+   * state.eval(1) // undefined
+   * state.exec(1) // 2
+   * ```
+   */
   static put = <S>(s: S): State<S, undefined> => new State(() => [undefined, s])
 
   /**
@@ -22,11 +40,31 @@ export default class State<S, A> {
    */
   static of = <S, A>(a: A): State<S, A> => new State(s => [a, s])
 
-  /** @ignore */
+  /**
+   * Modify the state by applying a function to the current state.
+   *
+   * ```ts
+   * const double = (n: number) => n * 2
+   *
+   * const state = modify(double)
+   *
+   * state.eval(1) // undefined
+   * state.exec(1) // 2
+   * ```
+   */
   static modify = <S>(func: (s: S) => S): State<S, undefined> =>
     new State(s => [undefined, func(s)])
 
-  /** @ignore */
+  /**
+   * Get a value which depends on the current state.
+   *
+   * ```ts
+   * const state = gets(double)
+   *
+   * state.eval(1) // 2
+   * state.exec(1) // 1
+   * ```
+   */
   static gets = <S, A>(func: (s: S) => A): State<S, A> => new State(s => [func(s), s])
 
   /**
@@ -88,52 +126,10 @@ export default class State<S, A> {
   apply = <B>(m: State<S, (a: A) => B>): State<S, B> => m.then(func => this.map(func))
 }
 
-/**
- * Get the current state.
- *
- * ```ts
- * const state = get()
- *
- * state.eval(1) // 1
- * state.exec(1) // 1
- * ```
- */
 export const get = State.get
 
-/**
- * Set the state.
- *
- * ```ts
- * const state = put(2)
- *
- * state.eval(1) // undefined
- * state.exec(1) // 2
- * ```
- */
 export const put = State.put
 
-/**
- * Modify the state by applying a function to the current state.
- *
- * ```ts
- * const double = (n: number) => n * 2
- *
- * const state = modify(double)
- *
- * state.eval(1) // undefined
- * state.exec(1) // 2
- * ```
- */
 export const modify = State.modify
 
-/**
- * Get a value which depends on the current state.
- *
- * ```ts
- * const state = gets(double)
- *
- * state.eval(1) // 2
- * state.exec(1) // 1
- * ```
- */
 export const gets = State.gets
