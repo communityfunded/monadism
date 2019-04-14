@@ -88,7 +88,7 @@ describe('Writer', () => {
 
       const result = unit('test').apply(w)
 
-      expect(result.run()).toEqual('test value')
+      expect(result.eval()).toEqual('test value')
     })
   })
 

@@ -60,6 +60,7 @@ export interface Extend<A> extends Apply<A> {
 export interface Foldable<A> {
   fold <B>(b: B, func: (a: A) => B): B
 }
+
 /***
  * Utils
  */
@@ -84,17 +85,17 @@ export function eq<A extends Eq<A>> (a: A, b: A): boolean {
 }
 
 /**
- * Cast a string tag as an empty value, to represent emptiness without undefined
+ * Cast a string tag as an empty value, to represent emptiness without undefined.
  */
-export const empty = <A>() => undefined as unknown as Empty<A>
+export const empty = <A>() => ({_tag: 'EMPTY'}) as unknown as Empty<A>
 
 /**
- * Ensure a value is not `null` or `undefined`
+ * Ensure a value is not `null` or `undefined`.
  */
 export const exists = <T>(t: T) => t !== null && t !== undefined
 
 /**
- * A classic functional `compose`
+ * A classic functional `compose`.
  */
 export const compose = <R>(fn1: (a: R) => R, ...fns: ((a: R) => R)[]) =>
   fns.reduce((prevFn, nextFn) => value => prevFn(nextFn(value)), fn1)

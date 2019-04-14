@@ -82,7 +82,7 @@ export default class Either<L, R> implements Monad<R>, Eq<Either<L, R>> {
 
   apply = <B>(m: Either<L, (r: R) => B>): Either<L, B> =>
     this.isLeft()
-      ? Left<L, B>(m.left || this.left!)
+      ? Left<L, B>(m.left === m.emptyLeft ? this.left! : m.left)
       : m.isLeft()
         ? Left<L, B>(m.left!)
         : Right(m.right!(this.right!))

@@ -29,6 +29,7 @@
     "missing-jsdoc": false,
     "mocha-no-side-effect-code": false,
     "no-arg": true,
+    "no-banned-terms": false,
     "no-bitwise": true,
     "no-console": false,
     "no-construct": true,

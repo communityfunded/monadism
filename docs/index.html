@@ -79,20 +79,24 @@
 				<h2 id="docs">Docs</h2>
 				<ul>
 					<li><a href="https://communityfunded.github.io/monadism/classes/_maybe_.maybe.html">Maybe</a><ul>
-							<li>Represent optional values without <code>null</code> or <code>undefined</code>.</li>
+							<li>Represent optional values (A) without <code>null</code> or <code>undefined</code>.</li>
 						</ul>
 					</li>
 					<li><a href="https://communityfunded.github.io/monadism/classes/_either_.either.html">Either</a><ul>
-							<li>A value that can be either the Type on the Left, or the Type on the Right.</li>
+							<li>A value that can be either the type on the Left, or the type on the Right.</li>
 						</ul>
 					</li>
 					<li><a href="https://communityfunded.github.io/monadism/classes/_writer_.writer.html">Writer</a><ul>
-							<li>Accumulate a secondary Story value alongside the return value of a computation.</li>
+							<li>Accumulate a secondary story (S) value alongside the return value (A) of a computation.</li>
+						</ul>
+					</li>
+					<li><a href="https://communityfunded.github.io/monadism/classes/_state_.state.html">State</a><ul>
+							<li>A Monad which can be used to model a single piece of mutable state</li>
 						</ul>
 					</li>
 					<li><a href="https://communityfunded.github.io/monadism/classes/_signal_signal_.signal.html">Signal</a><ul>
-							<li>A lightweight FRP-like class heavily inspired by the Elm Signal.</li>
-							<li>Ported from <a href="https://github.com/bodil/purescript-signal">purescript-signal</a> by <a href="https://github.com/bodil">Bodil Stokke</a></li>
+							<li>A lightweight FRP-like Monad heavily inspired by the Elm Signal.</li>
+							<li>Ported from <a href="https://github.com/bodil/purescript-signal">purescript-signal</a> by <a href="https://github.com/bodil">Bodil Stokke</a>.</li>
 						</ul>
 					</li>
 				</ul>
@@ -107,7 +111,8 @@
 				<pre><code class="language-sh">yarn build.wach</code></pre>
 				<h2 id="examples">Examples</h2>
 				<h3 id="signal">Signal</h3>
-				<h3 id="mario">Mario</h3>
+				<h3 id="monadism-mario">Monadism Mario</h3>
+				<p><a href="examples/signal/mario">examples/signal/mario</a></p>
 				<p>An example of a Mario game screen using Signals to manage user input and game state. Adapted from <a href="https://github.com/michaelficarra">Michael Ficarra</a>&#39;s example at <a href="https://github.com/michaelficarra/purescript-demo-mario">https://github.com/michaelficarra/purescript-demo-mario</a></p>
 				<p><img src="https://user-images.githubusercontent.com/30199/56088170-97d4dc80-5e38-11e9-945b-293123d4fca7.gif" alt="Mario"></p>
 				<p>Play a live demo <a href="https://communityfunded.github.io/monadism/examples/signal/mario/">here</a>!</p>
@@ -132,6 +137,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_maybe_.html">"<wbr>Maybe"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_state_.html">"<wbr>State"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_writer_.html">"<wbr>Writer"</a>

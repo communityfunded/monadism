@@ -54,7 +54,7 @@ export const maybe = <A>(value: A | Nil) => Maybe.fromNullable<A>(value)
  *
  * @typeparam A - The Type of optional value the Maybe represents.
  */
-export default class Maybe<A> implements Monad<A>, Eq<Maybe<A>>, Extend<A> {
+export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
   /**
    * The internal value of the Maybe
    * @ignore

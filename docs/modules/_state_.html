@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Functor | Monadism</title>
+	<title>&quot;State&quot; | Monadism</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,108 +56,117 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_functional_.html">&quot;Functional&quot;</a>
-				</li>
-				<li>
-					<a href="_functional_.functor.html">Functor</a>
+					<a href="_state_.html">&quot;State&quot;</a>
 				</li>
 			</ul>
-			<h1>Interface Functor&lt;A&gt;</h1>
+			<h1>External module &quot;State&quot;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Functors can transform from one Type to another.</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>A</h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">Functor</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="_functional_.apply.html" class="tsd-signature-type">Apply</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter"><a href="_functional_.functor.html#map" class="tsd-kind-icon">map</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../classes/_state_.state.html" class="tsd-kind-icon">State</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_state_.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_state_.html#gets" class="tsd-kind-icon">gets</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_state_.html#modify" class="tsd-kind-icon">modify</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_state_.html#put" class="tsd-kind-icon">put</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-					<a name="map" class="tsd-anchor"></a>
-					<h3>map</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">map&lt;B&gt;<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_functional_.functor.html" class="tsd-signature-type">Functor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/fa3094c/src/Functional.ts#L30">Functional.ts:30</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>B</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>func: <span class="tsd-signature-type">function</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">B</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>a: <span class="tsd-signature-type">A</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">B</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_functional_.functor.html" class="tsd-signature-type">Functor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="get" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get</h3>
+					<div class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;State.get</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/fa3094c/src/State.ts#L101">State.ts:101</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Get the current state.</p>
+						</div>
+						<pre><code class="language-ts"><span class="hljs-keyword">const</span> state = <span class="hljs-keyword">get</span>()
+
+state.eval(<span class="hljs-number">1</span>) <span class="hljs-comment">// 1</span>
+state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 1</span></code></pre>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="gets" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> gets</h3>
+					<div class="tsd-signature tsd-kind-icon">gets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;State.gets</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/fa3094c/src/State.ts#L139">State.ts:139</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Get a value which depends on the current state.</p>
+						</div>
+						<pre><code class="language-ts"><span class="hljs-keyword">const</span> state = gets(double)
+
+state.eval(<span class="hljs-number">1</span>) <span class="hljs-comment">// 2</span>
+state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 1</span></code></pre>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="modify" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> modify</h3>
+					<div class="tsd-signature tsd-kind-icon">modify<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;State.modify</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/fa3094c/src/State.ts#L127">State.ts:127</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Modify the state by applying a function to the current state.</p>
+						</div>
+						<pre><code class="language-ts"><span class="hljs-keyword">const</span> double = <span class="hljs-function">(<span class="hljs-params">n: <span class="hljs-built_in">number</span></span>) =&gt;</span> n * <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">const</span> state = modify(double)
+
+state.eval(<span class="hljs-number">1</span>) <span class="hljs-comment">// undefined</span>
+state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 2</span></code></pre>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="put" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> put</h3>
+					<div class="tsd-signature tsd-kind-icon">put<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;State.put</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/fa3094c/src/State.ts#L113">State.ts:113</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Set the state.</p>
+						</div>
+						<pre><code class="language-ts"><span class="hljs-keyword">const</span> state = put(<span class="hljs-number">2</span>)
+
+state.eval(<span class="hljs-number">1</span>) <span class="hljs-comment">// undefined</span>
+state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 2</span></code></pre>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -168,80 +177,44 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_either_.html">"<wbr>Either"</a>
+						<a href="_either_.html">"<wbr>Either"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_functional_.html">"<wbr>Functional"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_maybe_.html">"<wbr>Maybe"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_functional_.html">"<wbr>Functional"</a>
+						<a href="_state_.html">"<wbr>State"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_maybe_.html">"<wbr>Maybe"</a>
+						<a href="_writer_.html">"<wbr>Writer"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_state_.html">"<wbr>State"</a>
+						<a href="_signal_signal_.html">"signal/<wbr>Signal"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_writer_.html">"<wbr>Writer"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_signal_signal_.html">"signal/<wbr>Signal"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_signal_signaldom_.html">"signal/<wbr>SignalDOM"</a>
+						<a href="_signal_signaldom_.html">"signal/<wbr>SignalDOM"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_functional_.alt.html" class="tsd-kind-icon">Alt</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../classes/_state_.state.html" class="tsd-kind-icon">State</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_functional_.apply.html" class="tsd-kind-icon">Apply</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_state_.html#get" class="tsd-kind-icon">get</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_functional_.eq.html" class="tsd-kind-icon">Eq</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_state_.html#gets" class="tsd-kind-icon">gets</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_functional_.extend.html" class="tsd-kind-icon">Extend</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_state_.html#modify" class="tsd-kind-icon">modify</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_functional_.foldable.html" class="tsd-kind-icon">Foldable</a>
-					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_functional_.functor.html" class="tsd-kind-icon">Functor</a>
-						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-								<a href="_functional_.functor.html#map" class="tsd-kind-icon">map</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_functional_.monad.html" class="tsd-kind-icon">Monad</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_functional_.monoid.html" class="tsd-kind-icon">Monoid</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_functional_.html#empty" class="tsd-kind-icon">Empty</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_functional_.html#nil" class="tsd-kind-icon">Nil</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_functional_.html#compose" class="tsd-kind-icon">compose</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_functional_.html#empty-1" class="tsd-kind-icon">empty</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_functional_.html#eq-1" class="tsd-kind-icon">eq</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_functional_.html#exists" class="tsd-kind-icon">exists</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_state_.html#put" class="tsd-kind-icon">put</a>
 					</li>
 				</ul>
 			</nav>
