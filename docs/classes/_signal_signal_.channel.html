@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_signal_.html">&quot;Signal&quot;</a>
+					<a href="../modules/_signal_signal_.html">&quot;signal/Signal&quot;</a>
 				</li>
 				<li>
-					<a href="_signal_.channel.html">Channel</a>
+					<a href="_signal_signal_.channel.html">Channel</a>
 				</li>
 			</ul>
 			<h1>Class Channel&lt;A&gt;</h1>
@@ -72,8 +72,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A channel allows you to feed arbitrary values into a Signal.</p>
+						<p>A Channel allows you to feed arbitrary values into a <a href="_signal_signal_.signal.html">Signal</a>. This is the simplest way to get
+						started with Signals.</p>
 					</div>
+					<pre><code class="language-ts"><span class="hljs-keyword">const</span> chan = channel(<span class="hljs-string">'Hello, Bodil!'</span>)
+<span class="hljs-keyword">const</span> hello = chan.subscribe()
+
+<span class="hljs-comment">// For each value sent to the Channel, transform it to uppercase and then log it.</span>
+hello.map(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> value.toUpperCase()).on(<span class="hljs-built_in">console</span>.log)
+
+chan.send(<span class="hljs-string">'This is great!'</span>)</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-type-parameters">
@@ -99,21 +107,21 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-private"><a href="_signal_.channel.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-private"><a href="_signal_signal_.channel.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signal_.channel.html#signal" class="tsd-kind-icon">signal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signal_signal_.channel.html#signal" class="tsd-kind-icon">signal</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_.channel.html#send" class="tsd-kind-icon">send</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_.channel.html#subscribe" class="tsd-kind-icon">subscribe</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_signal_.channel.html#channel" class="tsd-kind-icon">channel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_signal_.channel.html#send" class="tsd-kind-icon">send</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_signal_.channel.html#subscribe" class="tsd-kind-icon">subscribe</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_signal_signal_.channel.html#channel" class="tsd-kind-icon">channel</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,13 +133,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Channel<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.channel.html" class="tsd-signature-type">Channel</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Channel<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.channel.html" class="tsd-signature-type">Channel</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L323">Signal.ts:323</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L340">signal/Signal.ts:340</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,7 +148,7 @@
 									<h5>val: <span class="tsd-signature-type">A</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.channel.html" class="tsd-signature-type">Channel</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.channel.html" class="tsd-signature-type">Channel</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -150,10 +158,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="signal" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> signal</h3>
-					<div class="tsd-signature tsd-kind-icon">signal<span class="tsd-signature-symbol">:</span> <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">signal<span class="tsd-signature-symbol">:</span> <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L323">Signal.ts:323</a></li>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L340">signal/Signal.ts:340</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +178,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L334">Signal.ts:334</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L352">signal/Signal.ts:352</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -192,13 +200,13 @@
 					<a name="subscribe" class="tsd-anchor"></a>
 					<h3>subscribe</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">subscribe<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">subscribe<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L342">Signal.ts:342</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L357">signal/Signal.ts:357</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -206,7 +214,7 @@
 									<p>Returns the signal of the values sent to the channel.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -214,13 +222,13 @@
 					<a name="channel" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> channel</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">channel&lt;A&gt;<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">channel&lt;A&gt;<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L329">Signal.ts:329</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L346">signal/Signal.ts:346</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -235,7 +243,7 @@
 									<h5>val: <span class="tsd-signature-type">A</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.channel.html" class="tsd-signature-type">Channel</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -256,11 +264,14 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_maybe_.html">"<wbr>Maybe"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="../modules/_signal_.html">"<wbr>Signal"</a>
-					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_writer_.html">"<wbr>Writer"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_signal_signal_.html">"signal/<wbr>Signal"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_signal_signaldom_.html">"signal/<wbr>SignalDOM"</a>
 					</li>
 				</ul>
 			</nav>
@@ -269,44 +280,47 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_signal_.channel.html" class="tsd-kind-icon">Channel</a>
+						<a href="_signal_signal_.channel.html" class="tsd-kind-icon">Channel</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-private">
-								<a href="_signal_.channel.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_signal_signal_.channel.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_signal_.channel.html#signal" class="tsd-kind-icon">signal</a>
+								<a href="_signal_signal_.channel.html#signal" class="tsd-kind-icon">signal</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signal_.channel.html#send" class="tsd-kind-icon">send</a>
+								<a href="_signal_signal_.channel.html#send" class="tsd-kind-icon">send</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signal_.channel.html#subscribe" class="tsd-kind-icon">subscribe</a>
+								<a href="_signal_signal_.channel.html#subscribe" class="tsd-kind-icon">subscribe</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-								<a href="_signal_.channel.html#channel" class="tsd-kind-icon">channel</a>
+								<a href="_signal_signal_.channel.html#channel" class="tsd-kind-icon">channel</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_signal_.signal.html" class="tsd-kind-icon">Signal</a>
+						<a href="_signal_signal_.signal.html" class="tsd-kind-icon">Signal</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_signal_signal_.html#time" class="tsd-kind-icon">Time</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_signal_.html#channel-1" class="tsd-kind-icon">channel</a>
+						<a href="../modules/_signal_signal_.html#channel-1" class="tsd-kind-icon">channel</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_signal_.html#constant" class="tsd-kind-icon">constant</a>
+						<a href="../modules/_signal_signal_.html#constant" class="tsd-kind-icon">constant</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_signal_.html#every" class="tsd-kind-icon">every</a>
+						<a href="../modules/_signal_signal_.html#every" class="tsd-kind-icon">every</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_signal_.html#run" class="tsd-kind-icon">run</a>
+						<a href="../modules/_signal_signal_.html#run" class="tsd-kind-icon">run</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_signal_.html#unwrap" class="tsd-kind-icon">unwrap</a>
+						<a href="../modules/_signal_signal_.html#unwrap" class="tsd-kind-icon">unwrap</a>
 					</li>
 				</ul>
 			</nav>

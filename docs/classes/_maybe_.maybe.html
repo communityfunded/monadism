@@ -73,7 +73,7 @@
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>A Maybe represents an optional value with a convenient chaining syntax and strong type safety.
-						To create one, use the top-level constructors <a href="../modules/_maybe_.html#just">Just</a>, <a href="../modules/_maybe_.html#nothing">Nothing</a>, or <a href="../modules/_maybe_.html#maybe-1">maybe</a>.</p>
+						To create one, use the top-level constructors <a href="../modules/_maybe_.html#just">Just</a>, or <a href="../modules/_maybe_.html#nothing">Nothing</a>.</p>
 					</div>
 					<pre><code class="language-ts"><span class="hljs-keyword">import</span> {Just, Maybe, Nothing} <span class="hljs-keyword">from</span> <span class="hljs-string">'monadism'</span>
 
@@ -139,6 +139,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_maybe_.maybe.html#getor" class="tsd-kind-icon">get<wbr>Or</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_maybe_.maybe.html#getorthrow" class="tsd-kind-icon">get<wbr>OrThrow</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_maybe_.maybe.html#getorthrowmessage" class="tsd-kind-icon">get<wbr>OrThrow<wbr>Message</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_maybe_.maybe.html#instead" class="tsd-kind-icon">instead</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_maybe_.maybe.html#map" class="tsd-kind-icon">map</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_maybe_.maybe.html#on" class="tsd-kind-icon">on</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_maybe_.maybe.html#prop" class="tsd-kind-icon">prop</a></li>
@@ -164,7 +165,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L225">Maybe.ts:225</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L228">Maybe.ts:228</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -192,7 +193,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L201">Maybe.ts:201</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L204">Maybe.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -227,7 +228,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L215">Maybe.ts:215</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L218">Maybe.ts:218</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -256,12 +257,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L151">Maybe.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L151">Maybe.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Allos sequencing of Maybe values and functions that accept a Maybe and return a non-Maybe
+									<p>Allows sequencing of Maybe values and functions that accept a Maybe and return a non-Maybe
 									value.</p>
 								</div>
 							</div>
@@ -309,7 +310,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L243">Maybe.ts:243</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L246">Maybe.ts:246</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -364,7 +365,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L96">Maybe.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L96">Maybe.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -393,7 +394,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L116">Maybe.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L116">Maybe.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -416,7 +417,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L102">Maybe.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L102">Maybe.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -435,6 +436,34 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="instead" class="tsd-anchor"></a>
+					<h3>instead</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">instead<span class="tsd-signature-symbol">(</span>def<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_maybe_.maybe.html" class="tsd-signature-type">Maybe</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L163">Maybe.ts:163</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Replaces the return value with what is provided if there is Nothing.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>def: <span class="tsd-signature-type">A</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_maybe_.maybe.html" class="tsd-signature-type">Maybe</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a name="map" class="tsd-anchor"></a>
 					<h3>map</h3>
@@ -445,7 +474,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L189">Maybe.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L158">Maybe.ts:158</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -500,15 +529,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L165">Maybe.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L183">Maybe.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Run a side effect if the value is Just something, as opposed to Nothing.</p>
 								</div>
-								<p>For example, if we just want to <code>console.log()</code> our Maybe with we can use the <code>on</code> function to
-								run a &quot;side effect&quot; on Just values:</p>
+								<p>For example, if we just want to <code>console.log()</code> our Maybe with we can use the <code>on</code> function
+								to apply a function to Just values, ignoring the result:</p>
 								<pre><code class="language-ts">name.on(<span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Display name:'</span>, val.join(<span class="hljs-string">' | '</span>))
 })</code></pre>
@@ -551,7 +580,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L207">Maybe.ts:207</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L210">Maybe.ts:210</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -586,7 +615,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L137">Maybe.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L137">Maybe.ts:137</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -650,7 +679,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L87">Maybe.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L87">Maybe.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -672,7 +701,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L82">Maybe.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L82">Maybe.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -698,7 +727,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L174">Maybe.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L192">Maybe.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -738,13 +767,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Maybe.ts#L195">Maybe.ts:195</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L169">Maybe.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Similar to then, but it replaces the return value with what is provided if there is Just
-									something, discarding the original value.</p>
+									<p>Replaces the return value with what is provided if there is Just something, discarding the
+									original value.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -781,10 +810,13 @@
 						<a href="../modules/_maybe_.html">"<wbr>Maybe"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_signal_.html">"<wbr>Signal"</a>
+						<a href="../modules/_writer_.html">"<wbr>Writer"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_writer_.html">"<wbr>Writer"</a>
+						<a href="../modules/_signal_signal_.html">"signal/<wbr>Signal"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_signal_signaldom_.html">"signal/<wbr>SignalDOM"</a>
 					</li>
 				</ul>
 			</nav>
@@ -818,6 +850,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_maybe_.maybe.html#getorthrowmessage" class="tsd-kind-icon">get<wbr>OrThrow<wbr>Message</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_maybe_.maybe.html#instead" class="tsd-kind-icon">instead</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="_maybe_.maybe.html#map" class="tsd-kind-icon">map</a>
