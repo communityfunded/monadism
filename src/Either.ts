@@ -6,10 +6,6 @@ export enum EitherType {
   Right,
 }
 
-/***
- * The primary ways to create new Either instances.
- */
-
 /* tslint:disable no-use-before-declare */
 
 export const Left = <L, R>(l: L) => Either.Left<L, R>(l)
