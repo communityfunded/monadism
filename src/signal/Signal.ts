@@ -1,4 +1,4 @@
-import {empty, eq} from '../Functional'
+import {Monad, empty, eq} from '../Functional'
 
 export type Time = number & {_tag?: 'Time'}
 
@@ -34,7 +34,7 @@ export const channel = <A>(a: A) => Channel.channel(a)
 /* tslint:enable no-use-before-declare */
 
 /**
- * Signal is a lightweight FRP-like library heavily inspired by the Elm Signal implementation. It
+ * Signal is a lightweight FRP-like Monad heavily inspired by the Elm Signal implementation. It
  * was ported from an original PureScript implementation created by
  * [Bodil Stokke](https://github.com/bodil/purescript-signal).
  *
@@ -44,7 +44,7 @@ export const channel = <A>(a: A) => Channel.channel(a)
  *
  * @typeparam A - The Type of value the Signal yields
  */
-export default class Signal<A> {
+export default class Signal<A> implements Monad<A> {
   private value: A
   private subscriptions: ((a: A) => void)[] = []
 

@@ -38,8 +38,10 @@ const {Just, Nothing, maybe} = require('monadism')
   * A value that can be either the type on the Left, or the type on the Right.
 * [Writer](https://communityfunded.github.io/monadism/classes/_writer_.writer.html)
   * Accumulate a secondary story (S) value alongside the return value (A) of a computation.
+* [State](https://communityfunded.github.io/monadism/classes/_state_.state.html)
+  * A Monad which can be used to model a single piece of mutable state
 * [Signal](https://communityfunded.github.io/monadism/classes/_signal_signal_.signal.html)
-  * A lightweight FRP-like class heavily inspired by the Elm Signal.
+  * A lightweight FRP-like Monad heavily inspired by the Elm Signal.
   * Ported from [purescript-signal] by [Bodil Stokke](https://github.com/bodil).
 
 ## Development

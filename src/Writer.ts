@@ -1,4 +1,4 @@
-import {Eq, Functor, Monoid, eq, empty} from './Functional'
+import {Eq, Monad, Monoid, eq, empty} from './Functional'
 
 /* tslint:disable no-use-before-declare */
 
@@ -26,7 +26,7 @@ export const unit = <S, A>(a: A) => Writer.unit<S, A>(a)
  * @typeparam S - The array-based value of the Story (the accumulator).
  * @typeparam A - The current return value of the computation.
  */
-export default class Writer<S, A> implements Monoid<A>, Functor<A>, Eq<Writer<S, A>> {
+export default class Writer<S, A> implements Eq<Writer<S, A>>, Monoid<A>, Monad<A> {
   empty = empty<A>()
 
   private story: S[]
