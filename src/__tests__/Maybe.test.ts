@@ -130,7 +130,7 @@ describe('Maybe', () => {
 
   describe('prop()', () => {
     it('returns a Maybe for the value at the specified key of an object', () => {
-      const m = Just({test: 123}).prop('test')
+      const m = Just({test: 123, variation: 'string'}).prop('test')
 
       expect(m.getOrThrow()).toEqual(123)
     })
@@ -156,7 +156,7 @@ describe('Maybe', () => {
         id: 1
       }
 
-      const maybeElf = Just(cottage).prop<Shelf>('shelf').prop<Elf>('elf')
+      const maybeElf = Just(cottage).prop('shelf').prop('elf')
 
       const defaultElf = {pointyEars: false}
 
