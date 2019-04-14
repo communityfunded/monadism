@@ -21,7 +21,8 @@
     "build.examples.mario": "webpack --config examples/signal/mario/webpack.config.js",
     "lint": "tslint --format stylish --project tsconfig.json",
     "test.watch": "NODE_ENV=test jest --watch",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
