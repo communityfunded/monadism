@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;Either&quot; | Monadism</title>
+	<title>&quot;State&quot; | Monadism</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_either_.html">&quot;Either&quot;</a>
+					<a href="_state_.html">&quot;State&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;Either&quot;</h1>
+			<h1>External module &quot;State&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -71,128 +71,102 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumerations</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum tsd-parent-kind-external-module"><a href="../enums/_either_.eithertype.html" class="tsd-kind-icon">Either<wbr>Type</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../classes/_either_.either.html" class="tsd-kind-icon">Either</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../classes/_state_.state.html" class="tsd-kind-icon">State</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Functions</h3>
+							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_either_.html#left" class="tsd-kind-icon">Left</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_either_.html#right" class="tsd-kind-icon">Right</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_either_.html#either-1" class="tsd-kind-icon">either</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_state_.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_state_.html#gets" class="tsd-kind-icon">gets</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_state_.html#modify" class="tsd-kind-icon">modify</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_state_.html#put" class="tsd-kind-icon">put</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-					<a name="left" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> Left</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">Left&lt;L, R&gt;<span class="tsd-signature-symbol">(</span>l<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_either_.either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7d67605/src/Either.ts#L11">Either.ts:11</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>L</h4>
-								</li>
-								<li>
-									<h4>R</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>l: <span class="tsd-signature-type">L</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../classes/_either_.either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="get" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get</h3>
+					<div class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;State.get</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7d67605/src/State.ts#L101">State.ts:101</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Get the current state.</p>
+						</div>
+						<pre><code class="language-ts"><span class="hljs-keyword">const</span> state = <span class="hljs-keyword">get</span>()
+
+state.eval(<span class="hljs-number">1</span>) <span class="hljs-comment">// 1</span>
+state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 1</span></code></pre>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-					<a name="right" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> Right</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">Right&lt;L, R&gt;<span class="tsd-signature-symbol">(</span>r<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_either_.either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7d67605/src/Either.ts#L13">Either.ts:13</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>L</h4>
-								</li>
-								<li>
-									<h4>R</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>r: <span class="tsd-signature-type">R</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../classes/_either_.either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="gets" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> gets</h3>
+					<div class="tsd-signature tsd-kind-icon">gets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;State.gets</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7d67605/src/State.ts#L139">State.ts:139</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Get a value which depends on the current state.</p>
+						</div>
+						<pre><code class="language-ts"><span class="hljs-keyword">const</span> state = gets(double)
+
+state.eval(<span class="hljs-number">1</span>) <span class="hljs-comment">// 2</span>
+state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 1</span></code></pre>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-					<a name="either-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> either</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">either&lt;L, R&gt;<span class="tsd-signature-symbol">(</span>l<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol"> | </span><a href="_functional_.html#nil" class="tsd-signature-type">Nil</a>, r<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol"> | </span><a href="_functional_.html#nil" class="tsd-signature-type">Nil</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_either_.either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7d67605/src/Either.ts#L15">Either.ts:15</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>L</h4>
-								</li>
-								<li>
-									<h4>R</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>l: <span class="tsd-signature-type">L</span><span class="tsd-signature-symbol"> | </span><a href="_functional_.html#nil" class="tsd-signature-type">Nil</a></h5>
-								</li>
-								<li>
-									<h5>r: <span class="tsd-signature-type">R</span><span class="tsd-signature-symbol"> | </span><a href="_functional_.html#nil" class="tsd-signature-type">Nil</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../classes/_either_.either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="modify" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> modify</h3>
+					<div class="tsd-signature tsd-kind-icon">modify<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;State.modify</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7d67605/src/State.ts#L127">State.ts:127</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Modify the state by applying a function to the current state.</p>
+						</div>
+						<pre><code class="language-ts"><span class="hljs-keyword">const</span> double = <span class="hljs-function">(<span class="hljs-params">n: <span class="hljs-built_in">number</span></span>) =&gt;</span> n * <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">const</span> state = modify(double)
+
+state.eval(<span class="hljs-number">1</span>) <span class="hljs-comment">// undefined</span>
+state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 2</span></code></pre>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="put" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> put</h3>
+					<div class="tsd-signature tsd-kind-icon">put<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">(Anonymous function)</span><span class="tsd-signature-symbol"> =&nbsp;State.put</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7d67605/src/State.ts#L113">State.ts:113</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Set the state.</p>
+						</div>
+						<pre><code class="language-ts"><span class="hljs-keyword">const</span> state = put(<span class="hljs-number">2</span>)
+
+state.eval(<span class="hljs-number">1</span>) <span class="hljs-comment">// undefined</span>
+state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 2</span></code></pre>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -202,7 +176,7 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="_either_.html">"<wbr>Either"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -211,7 +185,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="_maybe_.html">"<wbr>Maybe"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="_state_.html">"<wbr>State"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -227,20 +201,20 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_either_.eithertype.html" class="tsd-kind-icon">Either<wbr>Type</a>
-					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../classes/_either_.either.html" class="tsd-kind-icon">Either</a>
+						<a href="../classes/_state_.state.html" class="tsd-kind-icon">State</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_either_.html#left" class="tsd-kind-icon">Left</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_state_.html#get" class="tsd-kind-icon">get</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_either_.html#right" class="tsd-kind-icon">Right</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_state_.html#gets" class="tsd-kind-icon">gets</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_either_.html#either-1" class="tsd-kind-icon">either</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_state_.html#modify" class="tsd-kind-icon">modify</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="_state_.html#put" class="tsd-kind-icon">put</a>
 					</li>
 				</ul>
 			</nav>
