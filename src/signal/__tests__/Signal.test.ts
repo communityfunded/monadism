@@ -1,7 +1,7 @@
 import wait from 'waait'
 
 import {channel, constant, every} from '../Signal'
-import Maybe, {Just, maybe} from '../Maybe'
+import Maybe, {Just, maybe} from '../../Maybe'
 
 const tick = <A>(initial: number, interval: number, values: A[]) => {
   const vals = values.slice()

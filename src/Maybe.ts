@@ -1,6 +1,6 @@
 import {Eq, Extend, Nil, Monad, eq, exists} from './Functional'
 
-// tslint:disable no-use-before-declare
+/* tslint:disable no-use-before-declare */
 
 /**
  * Wrap a value in a Maybe.
@@ -145,16 +145,34 @@ export default class Maybe<A> implements Monad<A>, Eq<Maybe<A>>, Extend<A> {
   }
 
   /**
-   * Allos sequencing of Maybe values and functions that accept a Maybe and return a non-Maybe
+   * Allows sequencing of Maybe values and functions that accept a Maybe and return a non-Maybe
    * value.
    */
   extend = <B>(func: (value: Maybe<A>) => B): Maybe<B> => maybe(func(this))
 
   /**
+   * Take a function that maps one Type to another and lift it to work with Maybes.
+   *
+   * @typeparam B - The Type of the resulting value.
+   */
+  map = <B>(func: (value: A) => B): Maybe<B> => this.then(val => Just<B>(func(val)))
+
+  /**
+   * Replaces the return value with what is provided if there is Nothing.
+   */
+  instead = (def: A): Maybe<A> => Just(this.getOr(def))
+
+  /**
+   * Replaces the return value with what is provided if there is Just something, discarding the
+   * original value.
+   */
+  when = <B>(b: B): Maybe<B> => this.map(_ => b)
+
+  /**
    * Run a side effect if the value is Just something, as opposed to Nothing.
    *
-   * For example, if we just want to `console.log()` our Maybe with we can use the `on` function to
-   * run a "side effect" on Just values:
+   * For example, if we just want to `console.log()` our Maybe with we can use the `on` function
+   * to apply a function to Just values, ignoring the result:
    *
    * ```ts
    * name.on(val => {
@@ -172,27 +190,12 @@ export default class Maybe<A> implements Monad<A>, Eq<Maybe<A>>, Extend<A> {
    * Run a side effect if the value is Nothing.
    */
   unless = (callback: () => void): Maybe<A> => {
-    const val = this.toNullable()
-
-    if (!exists(val)) {
+    if (!exists(this.toNullable())) {
       callback()
     }
 
     return this
   }
-
-  /**
-   * Take a function that maps one Type to another and lift it to work with Maybes.
-   *
-   * @typeparam B - The Type of the resulting value.
-   */
-  map = <B>(func: (value: A) => B): Maybe<B> => this.then(val => Just<B>(func(val)))
-
-  /**
-   * Similar to then, but it replaces the return value with what is provided if there is Just
-   * something, discarding the original value.
-   */
-  when = <B>(b: B): Maybe<B> => this.map(_ => b)
 
   /**
    * Unpacks a Maybe for a function from `A` to `B` into a function from `Maybe<A>` to `Maybe<B>`.
