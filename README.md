@@ -1,6 +1,6 @@
 # Monadism
 
-[![npm](https://img.shields.io/npm/v/monadism.svg)](https://www.npmjs.com/package/monadism) [![license](https://img.shields.io/github/license/communityfunded/monadism.svg)](LICENSE)
+[![npm](https://img.shields.io/npm/v/monadism.svg)](https://www.npmjs.com/package/monadism) [![license](https://img.shields.io/github/license/communityfunded/monadism.svg)](LICENSE) [![github](	https://img.shields.io/github/stars/communityfunded/monadism.svg?style=social)](https://github.com/communityfunded/monadism)
 
 A small set of monadic Types implemented in TypeScript.
 
@@ -77,6 +77,8 @@ yarn build.wach
 An example of a Mario game screen using Signals to manage user input and game state. Adapted from [Michael Ficarra](https://github.com/michaelficarra)'s example at https://github.com/michaelficarra/purescript-demo-mario
 
 ![Mario](https://user-images.githubusercontent.com/30199/56088170-97d4dc80-5e38-11e9-945b-293123d4fca7.gif)
+
+Play a live demo [here](https://communityfunded.github.io/monadism/examples/signal/mario/)!
 
 ## Authors
 
