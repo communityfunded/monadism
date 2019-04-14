@@ -1,9 +1,4 @@
 import {Eq, Functor, Monoid, eq, empty} from './Functional'
-
-/***
- * The primary ways to create new Writer instances.
- */
-
 /* tslint:disable no-use-before-declare */
 
 /**
@@ -24,8 +19,11 @@ export const unit = <S, A>(a: A) => Writer.unit<S, A>(a)
 /* tslint:enable no-use-before-declare */
 
 /**
- * The Writer monad provides the ability to accumulate a secondary value in addition to the return
- * value of a computation.
+ * The Writer monad provides the ability to accumulate a secondary Story value in addition to the
+ * return value of a computation.
+ *
+ * @typeparam S - The array-based value of the Story (the accumulator).
+ * @typeparam A - The current return value of the computation.
  */
 export default class Writer<S, A> implements Monoid<A>, Functor<A>, Eq<Writer<S, A>> {
   empty = empty<A>()

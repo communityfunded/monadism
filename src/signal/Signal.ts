@@ -1,8 +1,6 @@
-import {empty, eq} from './Functional'
+import {empty, eq} from '../Functional'
 
-/***
- * The primary ways to create new Signal instances.
- */
+export type Time = number & {_tag?: 'Time'}
 
 /* tslint:disable no-use-before-declare */
 
@@ -36,7 +34,15 @@ export const channel = <A>(a: A) => Channel.channel(a)
 /* tslint:enable no-use-before-declare */
 
 /**
- * A monad for lightweight functional reactive programming inspired by Elm.
+ * Signal is a lightweight FRP-like library heavily inspired by the Elm Signal implementation. It
+ * was ported from an original PureScript implementation created by
+ * [Bodil Stokke](https://github.com/bodil/purescript-signal).
+ *
+ * This class provides tools to manipulate values that a Signal receives, allowing you to apply
+ * transforms to each value sent to the Signal. To get started, however, you'll want to use the
+ * [[Channel]] or the (upcoming) Loop classes to set up a new signal for usage.
+ *
+ * @typeparam A - The Type of value the Signal yields
  */
 export default class Signal<A> {
   private value: A
@@ -60,7 +66,7 @@ export default class Signal<A> {
     return out
   }
 
-  static every = (interval: number) => {
+  static every = (interval: number): Signal<Time> => {
     const out = constant(Date.now())
 
     setInterval(() => {
@@ -317,7 +323,18 @@ export default class Signal<A> {
 }
 
 /**
- * A channel allows you to feed arbitrary values into a Signal.
+ * A Channel allows you to feed arbitrary values into a [[Signal]]. This is the simplest way to get
+ * started with Signals.
+ *
+ * ```ts
+ * const chan = channel('Hello, Bodil!')
+ * const hello = chan.subscribe()
+ *
+ * // For each value sent to the Channel, transform it to uppercase and then log it.
+ * hello.map(value => value.toUpperCase()).on(console.log)
+ *
+ * chan.send('This is great!')
+ * ```
  */
 export class Channel<A> {
   private signal: Signal<A>
@@ -331,13 +348,12 @@ export class Channel<A> {
   /**
    * Sends a value to a given channel.
    */
-  send = (val: A) => {
-    // @ts-ignore - exception to enable Channel functionality
-    this.signal.set(val)
-  }
+  // @ts-ignore - exception to enable Channel functionality
+  send = (val: A) => this.signal.set(val)
 
   /**
    * Returns the signal of the values sent to the channel.
    */
   subscribe = () => this.signal
 }
+

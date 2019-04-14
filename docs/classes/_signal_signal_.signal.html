@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_signal_.html">&quot;Signal&quot;</a>
+					<a href="../modules/_signal_signal_.html">&quot;signal/Signal&quot;</a>
 				</li>
 				<li>
-					<a href="_signal_.signal.html">Signal</a>
+					<a href="_signal_signal_.signal.html">Signal</a>
 				</li>
 			</ul>
 			<h1>Class Signal&lt;A&gt;</h1>
@@ -72,8 +72,13 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A monad for lightweight functional reactive programming inspired by Elm.</p>
+						<p>Signal is a lightweight FRP-like library heavily inspired by the Elm Signal implementation. It
+							was ported from an original PureScript implementation created by
+						<a href="https://github.com/bodil/purescript-signal">Bodil Stokke</a>.</p>
 					</div>
+					<p>This class provides tools to manipulate values that a Signal receives, allowing you to apply
+						transforms to each value sent to the Signal. To get started, however, you&#39;ll want to use the
+					<a href="_signal_signal_.channel.html">Channel</a> or the (upcoming) Loop classes to set up a new signal for usage.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-type-parameters">
@@ -81,6 +86,11 @@
 				<ul class="tsd-type-parameters">
 					<li>
 						<h4>A</h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The Type of value the Signal yields</p>
+							</div>
+						</div>
 					</li>
 				</ul>
 			</section>
@@ -99,38 +109,38 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-private"><a href="_signal_.signal.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-private"><a href="_signal_signal_.signal.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signal_.signal.html#subscriptions" class="tsd-kind-icon">subscriptions</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signal_.signal.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signal_signal_.signal.html#subscriptions" class="tsd-kind-icon">subscriptions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_signal_signal_.signal.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_.signal.html#apply" class="tsd-kind-icon">apply</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_.signal.html#delay" class="tsd-kind-icon">delay</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_.signal.html#droprepeats" class="tsd-kind-icon">drop<wbr>Repeats</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_.signal.html#filter" class="tsd-kind-icon">filter</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_.signal.html#flatten" class="tsd-kind-icon">flatten</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_.signal.html#foldp" class="tsd-kind-icon">foldp</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_signal_.signal.html#get" class="tsd-kind-icon">get</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_.signal.html#map" class="tsd-kind-icon">map</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_.signal.html#merge" class="tsd-kind-icon">merge</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_.signal.html#on" class="tsd-kind-icon">on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_.signal.html#sampleon" class="tsd-kind-icon">sample<wbr>On</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_signal_.signal.html#set" class="tsd-kind-icon">set</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_.signal.html#since" class="tsd-kind-icon">since</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_signal_.signal.html#subscribe" class="tsd-kind-icon">subscribe</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_.signal.html#then" class="tsd-kind-icon">then</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_signal_.signal.html#constant" class="tsd-kind-icon">constant</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_signal_.signal.html#every" class="tsd-kind-icon">every</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_signal_.signal.html#run" class="tsd-kind-icon">run</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_signal_.signal.html#unwrap" class="tsd-kind-icon">unwrap</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_signal_.signal.html#apply" class="tsd-kind-icon">apply</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_signal_.signal.html#delay" class="tsd-kind-icon">delay</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_signal_.signal.html#droprepeats" class="tsd-kind-icon">drop<wbr>Repeats</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_signal_.signal.html#filter" class="tsd-kind-icon">filter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_signal_.signal.html#flatten" class="tsd-kind-icon">flatten</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_signal_.signal.html#foldp" class="tsd-kind-icon">foldp</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_signal_signal_.signal.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_signal_.signal.html#map" class="tsd-kind-icon">map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_signal_.signal.html#merge" class="tsd-kind-icon">merge</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_signal_.signal.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_signal_.signal.html#sampleon" class="tsd-kind-icon">sample<wbr>On</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_signal_signal_.signal.html#set" class="tsd-kind-icon">set</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_signal_signal_.signal.html#since" class="tsd-kind-icon">since</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_signal_signal_.signal.html#subscribe" class="tsd-kind-icon">subscribe</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_signal_signal_.signal.html#then" class="tsd-kind-icon">then</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_signal_signal_.signal.html#constant" class="tsd-kind-icon">constant</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_signal_signal_.signal.html#every" class="tsd-kind-icon">every</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_signal_signal_.signal.html#run" class="tsd-kind-icon">run</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_signal_signal_.signal.html#unwrap" class="tsd-kind-icon">unwrap</a></li>
 							</ul>
 						</section>
 					</div>
@@ -142,13 +152,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Signal<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Signal<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L43">Signal.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L49">signal/Signal.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -157,7 +167,7 @@
 									<h5>value: <span class="tsd-signature-type">A</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -170,7 +180,7 @@
 					<div class="tsd-signature tsd-kind-icon">subscriptions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L43">Signal.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L49">signal/Signal.ts:49</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">A</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L42">Signal.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L48">signal/Signal.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -191,13 +201,13 @@
 					<a name="apply" class="tsd-anchor"></a>
 					<h3>apply</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">apply&lt;B&gt;<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">apply&lt;B&gt;<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L94">Signal.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L100">signal/Signal.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -214,10 +224,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>s: <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>s: <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -225,13 +235,13 @@
 					<a name="delay" class="tsd-anchor"></a>
 					<h3>delay</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delay<span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">delay<span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L246">Signal.ts:246</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L252">signal/Signal.ts:252</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -245,7 +255,7 @@
 									<h5>time: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -253,13 +263,13 @@
 					<a name="droprepeats" class="tsd-anchor"></a>
 					<h3>drop<wbr>Repeats</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">drop<wbr>Repeats<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">drop<wbr>Repeats<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L156">Signal.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L162">signal/Signal.ts:162</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -268,7 +278,7 @@
 									signal.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -276,13 +286,13 @@
 					<a name="filter" class="tsd-anchor"></a>
 					<h3>filter</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L176">Signal.ts:176</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L182">signal/Signal.ts:182</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -318,7 +328,7 @@
 									<h5>a: <span class="tsd-signature-type">A</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -326,13 +336,13 @@
 					<a name="flatten" class="tsd-anchor"></a>
 					<h3>flatten</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">flatten&lt;B&gt;<span class="tsd-signature-symbol">(</span>b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">flatten&lt;B&gt;<span class="tsd-signature-symbol">(</span>b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L192">Signal.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L198">signal/Signal.ts:198</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -353,7 +363,7 @@
 									<h5>b: <span class="tsd-signature-type">B</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -361,13 +371,13 @@
 					<a name="foldp" class="tsd-anchor"></a>
 					<h3>foldp</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">foldp&lt;B&gt;<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, seed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">foldp&lt;B&gt;<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, seed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L124">Signal.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L130">signal/Signal.ts:130</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -427,7 +437,7 @@
 									<h5>seed: <span class="tsd-signature-type">B</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -441,7 +451,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L302">Signal.ts:302</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L308">signal/Signal.ts:308</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">A</span></h4>
@@ -452,13 +462,13 @@
 					<a name="map" class="tsd-anchor"></a>
 					<h3>map</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">map&lt;B&gt;<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">map&lt;B&gt;<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L76">Signal.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L82">signal/Signal.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -496,7 +506,7 @@
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -504,13 +514,13 @@
 					<a name="merge" class="tsd-anchor"></a>
 					<h3>merge</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">merge<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">merge<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L111">Signal.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L117">signal/Signal.ts:117</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -522,10 +532,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>s: <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>s: <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -533,13 +543,13 @@
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L235">Signal.ts:235</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L241">signal/Signal.ts:241</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -571,7 +581,7 @@
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -579,13 +589,13 @@
 					<a name="sampleon" class="tsd-anchor"></a>
 					<h3>sample<wbr>On</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">sample<wbr>On&lt;B&gt;<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">sample<wbr>On&lt;B&gt;<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L142">Signal.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L148">signal/Signal.ts:148</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -603,10 +613,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>s: <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>s: <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -620,7 +630,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L304">Signal.ts:304</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L310">signal/Signal.ts:310</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -637,13 +647,13 @@
 					<a name="since" class="tsd-anchor"></a>
 					<h3>since</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">since<span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">since<span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L269">Signal.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L275">signal/Signal.ts:275</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -659,7 +669,7 @@
 									<h5>time: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -673,7 +683,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L312">Signal.ts:312</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L318">signal/Signal.ts:318</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -708,13 +718,13 @@
 					<a name="then" class="tsd-anchor"></a>
 					<h3>then</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">then&lt;B&gt;<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">then&lt;B&gt;<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L89">Signal.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L95">signal/Signal.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -735,7 +745,7 @@
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
@@ -745,14 +755,14 @@
 															<h5>a: <span class="tsd-signature-type">A</span></h5>
 														</li>
 													</ul>
-													<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
+													<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
 												</li>
 											</ul>
 										</li>
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -760,13 +770,13 @@
 					<a name="constant" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> constant</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">constant&lt;A&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">constant&lt;A&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L49">Signal.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L55">signal/Signal.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -781,7 +791,7 @@
 									<h5>value: <span class="tsd-signature-type">A</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -789,13 +799,13 @@
 					<a name="every" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> every</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">every<span class="tsd-signature-symbol">(</span>interval<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">every<span class="tsd-signature-symbol">(</span>interval<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_signal_signal_.html#time" class="tsd-signature-type">Time</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L63">Signal.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L69">signal/Signal.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -804,7 +814,7 @@
 									<h5>interval: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_signal_signal_.html#time" class="tsd-signature-type">Time</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -812,13 +822,13 @@
 					<a name="run" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> run</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">run&lt;A&gt;<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">run&lt;A&gt;<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L51">Signal.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L57">signal/Signal.ts:57</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -830,7 +840,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>s: <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>s: <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -841,13 +851,13 @@
 					<a name="unwrap" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> unwrap</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">unwrap&lt;A&gt;<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">unwrap&lt;A&gt;<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/7852934/src/Signal.ts#L53">Signal.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/signal/Signal.ts#L59">signal/Signal.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -859,10 +869,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>s: <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>s: <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_signal_signal_.signal.html" class="tsd-signature-type">Signal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -883,108 +893,114 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_maybe_.html">"<wbr>Maybe"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="../modules/_signal_.html">"<wbr>Signal"</a>
-					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_writer_.html">"<wbr>Writer"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_signal_signal_.html">"signal/<wbr>Signal"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_signal_signaldom_.html">"signal/<wbr>SignalDOM"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_signal_.channel.html" class="tsd-kind-icon">Channel</a>
+						<a href="_signal_signal_.channel.html" class="tsd-kind-icon">Channel</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_signal_.signal.html" class="tsd-kind-icon">Signal</a>
+						<a href="_signal_signal_.signal.html" class="tsd-kind-icon">Signal</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-private">
-								<a href="_signal_.signal.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_signal_signal_.signal.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_signal_.signal.html#subscriptions" class="tsd-kind-icon">subscriptions</a>
+								<a href="_signal_signal_.signal.html#subscriptions" class="tsd-kind-icon">subscriptions</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_signal_.signal.html#value" class="tsd-kind-icon">value</a>
+								<a href="_signal_signal_.signal.html#value" class="tsd-kind-icon">value</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="_signal_.signal.html#apply" class="tsd-kind-icon">apply</a>
+								<a href="_signal_signal_.signal.html#apply" class="tsd-kind-icon">apply</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signal_.signal.html#delay" class="tsd-kind-icon">delay</a>
+								<a href="_signal_signal_.signal.html#delay" class="tsd-kind-icon">delay</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signal_.signal.html#droprepeats" class="tsd-kind-icon">drop<wbr>Repeats</a>
+								<a href="_signal_signal_.signal.html#droprepeats" class="tsd-kind-icon">drop<wbr>Repeats</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signal_.signal.html#filter" class="tsd-kind-icon">filter</a>
+								<a href="_signal_signal_.signal.html#filter" class="tsd-kind-icon">filter</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="_signal_.signal.html#flatten" class="tsd-kind-icon">flatten</a>
+								<a href="_signal_signal_.signal.html#flatten" class="tsd-kind-icon">flatten</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="_signal_.signal.html#foldp" class="tsd-kind-icon">foldp</a>
+								<a href="_signal_signal_.signal.html#foldp" class="tsd-kind-icon">foldp</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="_signal_.signal.html#get" class="tsd-kind-icon">get</a>
+								<a href="_signal_signal_.signal.html#get" class="tsd-kind-icon">get</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="_signal_.signal.html#map" class="tsd-kind-icon">map</a>
+								<a href="_signal_signal_.signal.html#map" class="tsd-kind-icon">map</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signal_.signal.html#merge" class="tsd-kind-icon">merge</a>
+								<a href="_signal_signal_.signal.html#merge" class="tsd-kind-icon">merge</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signal_.signal.html#on" class="tsd-kind-icon">on</a>
+								<a href="_signal_signal_.signal.html#on" class="tsd-kind-icon">on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="_signal_.signal.html#sampleon" class="tsd-kind-icon">sample<wbr>On</a>
+								<a href="_signal_signal_.signal.html#sampleon" class="tsd-kind-icon">sample<wbr>On</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="_signal_.signal.html#set" class="tsd-kind-icon">set</a>
+								<a href="_signal_signal_.signal.html#set" class="tsd-kind-icon">set</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_signal_.signal.html#since" class="tsd-kind-icon">since</a>
+								<a href="_signal_signal_.signal.html#since" class="tsd-kind-icon">since</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="_signal_.signal.html#subscribe" class="tsd-kind-icon">subscribe</a>
+								<a href="_signal_signal_.signal.html#subscribe" class="tsd-kind-icon">subscribe</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="_signal_.signal.html#then" class="tsd-kind-icon">then</a>
+								<a href="_signal_signal_.signal.html#then" class="tsd-kind-icon">then</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-								<a href="_signal_.signal.html#constant" class="tsd-kind-icon">constant</a>
+								<a href="_signal_signal_.signal.html#constant" class="tsd-kind-icon">constant</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="_signal_.signal.html#every" class="tsd-kind-icon">every</a>
+								<a href="_signal_signal_.signal.html#every" class="tsd-kind-icon">every</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-								<a href="_signal_.signal.html#run" class="tsd-kind-icon">run</a>
+								<a href="_signal_signal_.signal.html#run" class="tsd-kind-icon">run</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-								<a href="_signal_.signal.html#unwrap" class="tsd-kind-icon">unwrap</a>
+								<a href="_signal_signal_.signal.html#unwrap" class="tsd-kind-icon">unwrap</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_signal_.html#channel-1" class="tsd-kind-icon">channel</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_signal_signal_.html#time" class="tsd-kind-icon">Time</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_signal_.html#constant" class="tsd-kind-icon">constant</a>
+						<a href="../modules/_signal_signal_.html#channel-1" class="tsd-kind-icon">channel</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../modules/_signal_signal_.html#constant" class="tsd-kind-icon">constant</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_signal_.html#every" class="tsd-kind-icon">every</a>
+						<a href="../modules/_signal_signal_.html#every" class="tsd-kind-icon">every</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_signal_.html#run" class="tsd-kind-icon">run</a>
+						<a href="../modules/_signal_signal_.html#run" class="tsd-kind-icon">run</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_signal_.html#unwrap" class="tsd-kind-icon">unwrap</a>
+						<a href="../modules/_signal_signal_.html#unwrap" class="tsd-kind-icon">unwrap</a>
 					</li>
 				</ul>
 			</nav>
