@@ -38,7 +38,7 @@ const {Just, Nothing, maybe} = require('monadism')
   * A value that can be either the Type on the Left, or the Type on the Right.
 * [Writer](https://communityfunded.github.io/monadism/classes/_writer_.writer.html)
   * Accumulate a secondary Story value alongside the return value of a computation.
-* [Signal](https://communityfunded.github.io/monadism/classes/_signal_.signal.html)
+* [Signal](https://communityfunded.github.io/monadism/classes/_signal_signal_.signal.html)
   * A lightweight FRP-like class heavily inspired by the Elm Signal.
   * Ported from [purescript-signal] by [Bodil Stokke](https://github.com/bodil)
 
