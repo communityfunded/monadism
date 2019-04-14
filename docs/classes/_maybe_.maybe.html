@@ -90,7 +90,6 @@
 					<pre><code class="language-ts"><span class="hljs-keyword">import</span> {maybe} <span class="hljs-keyword">from</span> <span class="hljs-string">'monadism'</span>
 
 <span class="hljs-keyword">import</span> {User} <span class="hljs-keyword">from</span> <span class="hljs-string">'@my/app/Types'</span>
-<span class="hljs-keyword">import</span> Cache <span class="hljs-keyword">from</span> <span class="hljs-string">'@my/app/Cache'</span>
 
 <span class="hljs-keyword">const</span> getUser = (userId: <span class="hljs-built_in">string</span>): Maybe&lt;User&gt; =&gt; maybe(Cache.get(userId))</code></pre>
 				</div>
@@ -165,13 +164,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L228">Maybe.ts:228</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L268">Maybe.ts:268</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The first Maybe that is Just something is returned, otherwise Nothing is returned.</p>
 								</div>
+								<pre><code class="language-ts">Just(<span class="hljs-number">1</span>).alt(Just(<span class="hljs-number">2</span>)) <span class="hljs-comment">// Just(1)</span>
+Just(<span class="hljs-number">2</span>).alt(Nothing()) <span class="hljs-comment">// Just(2)</span></code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -193,7 +194,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L204">Maybe.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L235">Maybe.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -201,6 +202,9 @@
 									<p>Unpacks a Maybe for a function from <code>A</code> to <code>B</code> into a function from <code>Maybe&lt;A&gt;</code> to <code>Maybe&lt;B&gt;</code>.
 									Allows functions contained within a Just to transform a value contained within a Just.</p>
 								</div>
+								<pre><code class="language-ts"><span class="hljs-keyword">const</span> f = <span class="hljs-function">(<span class="hljs-params">n: <span class="hljs-built_in">number</span></span>) =&gt;</span> n * <span class="hljs-number">2</span>
+
+Just(<span class="hljs-number">2</span>).apply(Just(f)) <span class="hljs-comment">// Just(4)</span></code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -228,7 +232,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L218">Maybe.ts:218</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L253">Maybe.ts:253</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -236,6 +240,7 @@
 									<p>If the value is Nothing, returns false. If the value is Just something, returns the boolean
 									value of something.</p>
 								</div>
+								<pre><code class="language-ts">Just(<span class="hljs-number">2</span>).equals(Just(<span class="hljs-number">2</span>)) <span class="hljs-comment">// true</span></code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -257,7 +262,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L151">Maybe.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L170">Maybe.ts:170</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -265,6 +270,10 @@
 									<p>Allows sequencing of Maybe values and functions that accept a Maybe and return a non-Maybe
 									value.</p>
 								</div>
+								<pre><code class="language-ts"><span class="hljs-keyword">const</span> f = <span class="hljs-function">(<span class="hljs-params">m: Maybe&lt;<span class="hljs-built_in">number</span>&gt;</span>) =&gt;</span> m.getOr(<span class="hljs-number">0</span>)
+
+Just(<span class="hljs-number">2</span>).extend(f) <span class="hljs-comment">// Just(2)</span>
+Nothing&lt;<span class="hljs-built_in">number</span>&gt;().extend(f) <span class="hljs-comment">// Nothing()</span></code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -310,13 +319,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L246">Maybe.ts:246</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L294">Maybe.ts:294</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Apply a function to each case in the data structure.</p>
 								</div>
+								<pre><code class="language-ts"><span class="hljs-keyword">const</span> f = <span class="hljs-string">'none'</span>
+<span class="hljs-keyword">const</span> g = <span class="hljs-function">(<span class="hljs-params">s: <span class="hljs-built_in">string</span></span>) =&gt;</span> <span class="hljs-string">`some<span class="hljs-subst">${s.length}</span>`</span>
+
+Nothing&lt;<span class="hljs-built_in">string</span>&gt;().fold(f, g)) <span class="hljs-comment">// 'none'</span>
+Just(<span class="hljs-string">'abc'</span>).fold(f, g)) <span class="hljs-comment">// 'some3</span></code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -365,14 +379,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L96">Maybe.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L101">Maybe.ts:101</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>If the value of the current Maybe is Nothing, return a default value instaed.</p>
 								</div>
-								<pre><code class="language-ts"><span class="hljs-keyword">const</span> name = displayName.getOr([<span class="hljs-string">'New'</span>, <span class="hljs-string">'User'</span>])</code></pre>
+								<pre><code class="language-ts">Just(<span class="hljs-number">2</span>).getOr(<span class="hljs-number">1</span>) <span class="hljs-comment">// 2</span>
+Nothing().getOr(<span class="hljs-number">1</span>) <span class="hljs-comment">// 1</span></code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -394,7 +409,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L116">Maybe.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L129">Maybe.ts:129</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -402,6 +417,7 @@
 									<p>If the value of the current Maybe is Nothing, throw a default error message.
 									WARNING: Unsafe - could throw an exception.</p>
 								</div>
+								<pre><code class="language-ts">Nothing().getOrThrow() <span class="hljs-comment">// Error: Maybe was Nothing</span></code></pre>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">A</span></h4>
 						</li>
@@ -417,7 +433,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L102">Maybe.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L111">Maybe.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -425,6 +441,7 @@
 									<p>If the value of the current Maybe is Nothing, throw the given error message.
 									WARNING: Unsafe - could throw an exception.</p>
 								</div>
+								<pre><code class="language-ts">Nothing().getOrThrowMessage(<span class="hljs-string">"It didn't work!"</span>) <span class="hljs-comment">// Error: It didn't work!</span></code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -446,7 +463,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L163">Maybe.ts:163</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L188">Maybe.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -474,13 +491,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L158">Maybe.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L183">Maybe.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Take a function that maps one Type to another and lift it to work with Maybes.</p>
 								</div>
+								<pre><code class="language-ts"><span class="hljs-keyword">const</span> square = <span class="hljs-function">(<span class="hljs-params">a: <span class="hljs-built_in">number</span></span>) =&gt;</span> a * a
+
+Just(<span class="hljs-number">6</span>).map(square) <span class="hljs-comment">// Just(36)</span></code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -529,7 +549,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L183">Maybe.ts:183</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L208">Maybe.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -539,7 +559,7 @@
 								<p>For example, if we just want to <code>console.log()</code> our Maybe with we can use the <code>on</code> function
 								to apply a function to Just values, ignoring the result:</p>
 								<pre><code class="language-ts">name.on(<span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Display name:'</span>, val.join(<span class="hljs-string">' | '</span>))
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Display name:'</span>, val.join(<span class="hljs-string">' '</span>))
 })</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -580,7 +600,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L210">Maybe.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L241">Maybe.ts:241</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -615,7 +635,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L137">Maybe.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L149">Maybe.ts:149</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -624,11 +644,9 @@
 								</div>
 								<p>For example, if you have a Maybe for a display name you might want to do something with it,
 								like split a display name into first and last names:</p>
-								<pre><code class="language-ts"><span class="hljs-keyword">import</span> {maybe} <span class="hljs-keyword">from</span> <span class="hljs-string">'monadism'</span>
+								<pre><code class="language-ts"><span class="hljs-keyword">const</span> squareIfEven = (a: <span class="hljs-built_in">number</span>): Maybe&lt;<span class="hljs-built_in">number</span>&gt; =&gt; a % <span class="hljs-number">2</span> === <span class="hljs-number">0</span> ? Just(a * a) : Just(a)
 
-<span class="hljs-keyword">const</span> displayName = <span class="hljs-function">(<span class="hljs-params">userId: <span class="hljs-built_in">string</span></span>) =&gt;</span> getUser(userId)
-  .then(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> maybe(user.displayName))
-  .map(<span class="hljs-function"><span class="hljs-params">displayName</span> =&gt;</span> displayName.split(<span class="hljs-regexp">/\s+/</span>))</code></pre>
+Just(<span class="hljs-number">6</span>).then(squareIfEven) <span class="hljs-comment">// Just(36)</span></code></pre>
 								<p>The <code>then</code> method allows you to transform the value with a function that accepts it and returns
 								another Maybe.</p>
 							</div>
@@ -679,7 +697,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L87">Maybe.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L91">Maybe.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -701,7 +719,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L82">Maybe.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L86">Maybe.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -727,7 +745,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L192">Maybe.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L217">Maybe.ts:217</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -767,7 +785,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/3e59325/src/Maybe.ts#L169">Maybe.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/5b84b90/src/Maybe.ts#L194">Maybe.ts:194</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
