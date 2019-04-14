@@ -1,6 +1,6 @@
 {
   "name": "monadism",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "lib/index.js",
   "description": "A small set of monadic Types implemented in TypeScript",
   "repository": {
