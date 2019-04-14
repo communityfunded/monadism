@@ -58,6 +58,7 @@ build/Release
 
 # Compiled files
 lib
+!docs/examples/signal/mario/lib
 
 # Dependencies
 node_modules
