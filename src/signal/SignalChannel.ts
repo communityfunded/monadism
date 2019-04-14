@@ -14,7 +14,7 @@ import Signal, {constant} from './Signal'
  * chan.send('This is great!')
  * ```
  */
-export class Channel<A> {
+export default class Channel<A> {
   /** @ignore */
   private readonly signal: Signal<A>
 
