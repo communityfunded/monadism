@@ -228,11 +228,10 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
   apply = <B>(m: Maybe<(value: A) => B>): Maybe<B> => this.then(val => m.map(func => func(val)))
 
   /**
-   * Returns a Maybe for the value at the given key. Currently, we will have a pass an explicit type
-   * here to override the one that TypeScript infers. Hopefully this will get better over time.
+   * Returns a Maybe for the value at the given key.
    */
-  prop = <B extends A[keyof A]>(key: keyof A): Maybe<B> => this.then(
-    val => (val && key in val) ? Just(val[key] as B) : Nothing()
+  prop = <P extends keyof A>(key: P): Maybe<A[P]> => this.then(
+    val => (val && key in val) ? Just(val[key]) : Nothing()
   )
 
   /**
