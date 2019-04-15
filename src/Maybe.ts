@@ -231,7 +231,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * Returns a Maybe for the value at the given key.
    */
   prop = <P extends keyof A>(key: P): Maybe<A[P]> => this.then(
-    val => (val && key in val) ? Just(val[key]) : Nothing()
+    val => (val && key in val) ? maybe(val[key]) : Nothing()
   )
 
   /**
