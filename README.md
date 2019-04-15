@@ -1,6 +1,6 @@
 # Monadism
 
-[![npm](https://img.shields.io/npm/v/monadism.svg)](https://www.npmjs.com/package/monadism) [![license](https://img.shields.io/github/license/communityfunded/monadism.svg)](LICENSE) [![github](	https://img.shields.io/github/stars/communityfunded/monadism.svg?style=social)](https://github.com/communityfunded/monadism)
+[![npm](https://img.shields.io/npm/v/monadism.svg)](https://www.npmjs.com/package/monadism) [![license](https://img.shields.io/github/license/communityfunded/monadism.svg)](LICENSE) [![GitHub issues](https://img.shields.io/github/issues/communityfunded/monadism.svg)](https://github.com/communityfunded/monadism/issues) [![github](	https://img.shields.io/github/stars/communityfunded/monadism.svg?style=social)](https://github.com/communityfunded/monadism)
 
 A small set of monadic Types implemented in TypeScript.
 
@@ -53,6 +53,20 @@ Monadism builds on the inspiration of a variety of different projects. Check the
 * [https://github.com/gcanti/fp-ts](fp-ts) - A library for typed functional programming in TypeScript.
 * [https://github.com/cbowdon/TsMonad](TsMonad) - Little monad library designed for TypeScript.
 
+## Examples
+
+### Signal
+
+### Monadism Mario
+
+[examples/signal/mario](examples/signal/mario)
+
+An example of a Mario game screen using Signals to manage user input and game state. Adapted from [Michael Ficarra](https://github.com/michaelficarra)'s example at https://github.com/michaelficarra/purescript-demo-mario
+
+![Mario](https://user-images.githubusercontent.com/30199/56088170-97d4dc80-5e38-11e9-945b-293123d4fca7.gif)
+
+Play a live demo [here](https://communityfunded.github.io/monadism/examples/signal/mario/)!
+
 ## Development
 
 Install dependencies with [Yarn]:
@@ -84,20 +98,6 @@ To build the docs:
 ```sh
 yarn build.docs
 ```
-
-## Examples
-
-### Signal
-
-### Monadism Mario
-
-[examples/signal/mario](examples/signal/mario)
-
-An example of a Mario game screen using Signals to manage user input and game state. Adapted from [Michael Ficarra](https://github.com/michaelficarra)'s example at https://github.com/michaelficarra/purescript-demo-mario
-
-![Mario](https://user-images.githubusercontent.com/30199/56088170-97d4dc80-5e38-11e9-945b-293123d4fca7.gif)
-
-Play a live demo [here](https://communityfunded.github.io/monadism/examples/signal/mario/)!
 
 ## Authors
 
