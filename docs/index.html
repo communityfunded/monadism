@@ -65,7 +65,7 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="monadism">Monadism</h1>
-				<p><a href="https://www.npmjs.com/package/monadism"><img src="https://img.shields.io/npm/v/monadism.svg" alt="npm"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/communityfunded/monadism.svg" alt="license"></a> <a href="https://github.com/communityfunded/monadism"><img src="https://img.shields.io/github/stars/communityfunded/monadism.svg?style=social" alt="github"></a></p>
+				<p><a href="https://www.npmjs.com/package/monadism"><img src="https://img.shields.io/npm/v/monadism.svg" alt="npm"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/communityfunded/monadism.svg" alt="license"></a> <a href="https://github.com/communityfunded/monadism/issues"><img src="https://img.shields.io/github/issues/communityfunded/monadism.svg" alt="GitHub issues"></a> <a href="https://github.com/communityfunded/monadism"><img src="https://img.shields.io/github/stars/communityfunded/monadism.svg?style=social" alt="github"></a></p>
 				<p>A small set of monadic Types implemented in TypeScript.</p>
 				<h2 id="installation">Installation</h2>
 				<p>Install with <a href="https://yarnpkg.com">Yarn</a>:</p>
@@ -100,15 +100,14 @@
 						</ul>
 					</li>
 				</ul>
-				<h2 id="development">Development</h2>
-				<p>Install dependencies with <a href="https://yarnpkg.com">Yarn</a>:</p>
-				<pre><code class="language-sh">yarn</code></pre>
-				<p>Or with <a href="https://www.npmjs.com">npm</a>:</p>
-				<pre><code class="language-sh">npm</code></pre>
-				<p>To build changes to the TypeScript code:</p>
-				<pre><code class="language-sh">yarn build</code></pre>
-				<p>To build in watch mode:</p>
-				<pre><code class="language-sh">yarn build.wach</code></pre>
+				<h2 id="influences">Influences</h2>
+				<p>Monadism builds on the inspiration of a variety of different projects. Check them out for a deep dive into things like category theory and different data structures!</p>
+				<ul>
+					<li><a href="purescript-transformers">https://github.com/purescript/purescript-transformers</a> - Monad and comonad transformers based on <a href="http://hackage.haskell.org/package/mtl">mtl</a>.</li>
+					<li><a href="bs-abstract">https://github.com/Risto-Stevcev/bs-abstract</a> - Bucklescript interfaces and implementations for category theory and abstract algebra.</li>
+					<li><a href="fp-ts">https://github.com/gcanti/fp-ts</a> - A library for typed functional programming in TypeScript.</li>
+					<li><a href="TsMonad">https://github.com/cbowdon/TsMonad</a> - Little monad library designed for TypeScript.</li>
+				</ul>
 				<h2 id="examples">Examples</h2>
 				<h3 id="signal">Signal</h3>
 				<h3 id="monadism-mario">Monadism Mario</h3>
@@ -116,6 +115,17 @@
 				<p>An example of a Mario game screen using Signals to manage user input and game state. Adapted from <a href="https://github.com/michaelficarra">Michael Ficarra</a>&#39;s example at <a href="https://github.com/michaelficarra/purescript-demo-mario">https://github.com/michaelficarra/purescript-demo-mario</a></p>
 				<p><img src="https://user-images.githubusercontent.com/30199/56088170-97d4dc80-5e38-11e9-945b-293123d4fca7.gif" alt="Mario"></p>
 				<p>Play a live demo <a href="https://communityfunded.github.io/monadism/examples/signal/mario/">here</a>!</p>
+				<h2 id="development">Development</h2>
+				<p>Install dependencies with <a href="https://yarnpkg.com">Yarn</a>:</p>
+				<pre><code class="language-sh">yarn</code></pre>
+				<p>Or with <a href="https://www.npmjs.com">npm</a>:</p>
+				<pre><code class="language-sh">npm i</code></pre>
+				<p>To build changes to the TypeScript code:</p>
+				<pre><code class="language-sh">yarn build</code></pre>
+				<p>To build in watch mode:</p>
+				<pre><code class="language-sh">yarn build.wach</code></pre>
+				<p>To build the docs:</p>
+				<pre><code class="language-sh">yarn build.docs</code></pre>
 				<h2 id="authors">Authors</h2>
 				<ul>
 					<li><a href="https://github.com/bkonkle">Brandon Konkle</a></li>
