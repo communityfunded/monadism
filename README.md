@@ -48,10 +48,10 @@ const {Just, Nothing, maybe} = require('monadism')
 
 Monadism builds on the inspiration of a variety of different projects. Check them out for a deep dive into things like category theory and different data structures!
 
-* [https://github.com/purescript/purescript-transformers](purescript-transformers) - Monad and comonad transformers based on [mtl](http://hackage.haskell.org/package/mtl).
-* [https://github.com/Risto-Stevcev/bs-abstract](bs-abstract) - Bucklescript interfaces and implementations for category theory and abstract algebra.
-* [https://github.com/gcanti/fp-ts](fp-ts) - A library for typed functional programming in TypeScript.
-* [https://github.com/cbowdon/TsMonad](TsMonad) - Little monad library designed for TypeScript.
+* [purescript-transformers](https://github.com/purescript/purescript-transformers) - Monad and comonad transformers based on [mtl](http://hackage.haskell.org/package/mtl).
+* [bs-abstract](https://github.com/Risto-Stevcev/bs-abstract) - Bucklescript interfaces and implementations for category theory and abstract algebra.
+* [fp-ts](https://github.com/gcanti/fp-ts) - A library for typed functional programming in TypeScript.
+* [TsMonad](https://github.com/cbowdon/TsMonad) - Little monad library designed for TypeScript.
 
 ## Examples
 
