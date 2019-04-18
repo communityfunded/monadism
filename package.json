@@ -59,7 +59,7 @@
   },
   "lint-staged": {
     "linters": {
-      "*.{ts,tsx}": [
+      "!(*/__tests__)/**/*.{ts,tsx}": [
         "yarn lint",
         "git add"
       ]

@@ -22,6 +22,11 @@ describe('Maybe', () => {
 
       expect(result).toEqual(1)
     })
+
+    it("shouldn't interpret falsey values as nullable", () => {
+      expect(Just(0).getOr(1)).toEqual(0)
+      expect(Just(false).getOr(true)).toEqual(false)
+    })
   })
 
   describe('getOrThrow()', () => {
