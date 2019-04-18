@@ -94,7 +94,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
   getOr = (def: A) => {
     const val = this.toNullable()
 
-    return exists(val) ? val : def
+    return exists(val) ? val! : def
   }
 
   /**
