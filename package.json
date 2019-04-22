@@ -59,13 +59,14 @@
   },
   "lint-staged": {
     "linters": {
-      "!(*/__tests__)/**/*.{ts,tsx}": [
+      "*.{ts,tsx}": [
         "yarn lint",
         "git add"
       ]
     },
     "ignore": [
-      "**/*/lib/**/*"
+      "**/*/lib/**/*",
+      "**/*/__tests__/**/*"
     ]
   }
 }
