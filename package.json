@@ -18,7 +18,7 @@
     "build.docs": "yarn build.docs.typedoc; yarn build.docs.config; yarn build.docs.mario",
     "build.docs.typedoc": "typedoc --out docs src --exclude \"**/*+(TestSetup|.test).ts\" --name Monadism",
     "build.docs.config": "cp .gh-pages.yml docs/_config.yml",
-    "build.docs.mario": "mkdir -p docs/examples/signal; cp -r lib/examples/signal/mario docs/examples/signal; mv docs/examples/signal/mario/src docs/examples/signal/mario/lib",
+    "build.docs.mario": "mkdir -p docs/examples/signal; cp -r examples/signal/mario docs/examples/signal; cp -r lib/examples/signal/mario docs/examples/signal; mv docs/examples/signal/mario/src docs/examples/signal/mario/lib",
     "build.watch": "yarn build --watch",
     "build.examples.mario": "webpack --config examples/signal/mario/webpack.config.js",
     "lint": "tslint --format stylish --project tsconfig.json",
