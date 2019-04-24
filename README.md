@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/monadism.svg)](https://www.npmjs.com/package/monadism) [![license](https://img.shields.io/github/license/communityfunded/monadism.svg)](LICENSE) [![GitHub issues](https://img.shields.io/github/issues/communityfunded/monadism.svg)](https://github.com/communityfunded/monadism/issues) [![github](	https://img.shields.io/github/stars/communityfunded/monadism.svg?style=social)](https://github.com/communityfunded/monadism)
 
-A small set of monadic Types implemented in TypeScript.
+A set of practical monads implemented in TypeScript, with the goal of being easy to learn and use in daily work.
 
 ## Installation
 
