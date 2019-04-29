@@ -2,7 +2,7 @@ import {Monad} from './Functional'
 
 /**
  * State is a Monad with the operations `get` and `put`, which can be used to model a single piece
- * of mutable state.
+ * of mutable state (S) with a return value (A).
  */
 export default class State<S, A> implements Monad<A> {
   /** @ignore */

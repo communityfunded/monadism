@@ -3,7 +3,7 @@ export type Nil = null | undefined
 export type Empty<A> = A & {_tag?: 'EMPTY'}
 
 /**
- * Monoid provides for Types that can be "empty"
+ * Monoid provides for types that can be "empty"
  */
 export interface Monoid<A> {
   empty: A
@@ -17,22 +17,22 @@ export interface Eq<A> {
 }
 
 /**
- * Alt allows for a choice to be made between two Types.
+ * Alt allows for a choice to be made between two types.
  */
 export interface Alt<A> {
   alt (m: Alt<A>): Alt<A>
 }
 
 /**
- * Functors can transform from one Type to another.
+ * Functors can transform from one type to another.
  */
 export interface Functor<A> {
   map <B>(func: (a: A) => B): Functor<B>
 }
 
 /**
- * Apply represents something that can be "applied", which unpacks a Type wrapping a function into
- * a function that takes a Type wrapping the input returning a Type wrapping the output.
+ * Apply represents something that can be "applied", which unpacks a type wrapping a function into
+ * a function that takes a type wrapping the input returning a type wrapping the output.
  *
  * For example:
  *   `Maybe<(a: A) => B>` would be transformed into `(a: Maybe<A>) => Maybe<B>`
@@ -50,8 +50,8 @@ export interface Monad<A> extends Apply<A> {
 }
 
 /**
- * Extend allows sequencing of functions that accept a value of the given Type and return a
- * result of the type that the Type is wrapping.
+ * Extend allows sequencing of functions that accept a value of the given type and return a
+ * result of the type that the type is wrapping.
  */
 export interface Extend<A> extends Apply<A> {
   extend <B>(func: (a: Extend<A>) => B): Extend<B>
@@ -93,6 +93,8 @@ export const empty = <A>() => ({_tag: 'EMPTY'}) as unknown as Empty<A>
  * Ensure a value is not `null` or `undefined`.
  */
 export const exists = <T>(t: T) => t !== null && t !== undefined
+
+export const identity = <A>(a: A) => a
 
 /**
  * A classic functional `compose`.

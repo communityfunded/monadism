@@ -1,15 +1,13 @@
 import {Eq, Extend, Nil, Monad, eq, exists} from './Functional'
 
 /**
- * A Maybe represents an optional value with a convenient chaining syntax and strong type safety.
- * To create one, use the top-level constructors [[Just]], or [[Nothing]].
+ * A Maybe represents an optional value (A) with a convenient chaining syntax and strong type
+ * inference. To create one, use the top-level constructors [[Just]], or [[Nothing]].
  *
  * ```ts
- * import {Just, Maybe, Nothing} from 'monadism'
+ * import {Just, Maybe, Nothing, exists} from 'monadism'
  *
  * import Cache from '@my/app/Cache'
- *
- * const exists = val => val !== null && val !== undefined
  *
  * const getUser = (userId: string): Maybe<string> => {
  *   const val = Cache.get(userId)
@@ -28,7 +26,7 @@ import {Eq, Extend, Nil, Monad, eq, exists} from './Functional'
  * const getUser = (userId: string): Maybe<User> => maybe(Cache.get(userId))
  * ```
  *
- * @typeparam A - The Type of optional value the Maybe represents.
+ * @typeparam A - The type of optional value the Maybe represents.
  */
 export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
   /**
@@ -128,7 +126,6 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
   /**
    * Our name for `flatMap`. Allows sequencing of Maybe values and functions that return a Maybe.
    *
-   *
    * For example, if you have a Maybe for a display name you might want to do something with it,
    * like split a display name into first and last names:
    *
@@ -141,7 +138,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * The `then` method allows you to transform the value with a function that accepts it and returns
    * another Maybe.
    *
-   * @typeparam B - The Type of the resulting value.
+   * @typeparam B - The type of the resulting value.
    */
   then = <B>(func: (value: A) => Maybe<B>): Maybe<B> => {
     const val = this.toNullable()
@@ -167,7 +164,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
   extend = <B>(func: (value: Maybe<A>) => B): Maybe<B> => maybe(func(this))
 
   /**
-   * Take a function that maps one Type to another and lift it to work with Maybes.
+   * Take a function that maps one type to another and lift it to work with Maybes.
    *
    * ```ts
    * const square = (a: number) => a * a
@@ -175,7 +172,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * Just(6).map(square) // Just(36)
    * ```
    *
-   * @typeparam B - The Type of the resulting value.
+   * @typeparam B - The type of the resulting value.
    */
   map = <B>(func: (value: A) => B): Maybe<B> => this.then(val => Just<B>(func(val)))
 
