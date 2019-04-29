@@ -66,7 +66,7 @@
 			<div class="tsd-panel tsd-typography">
 				<h1 id="monadism">Monadism</h1>
 				<p><a href="https://www.npmjs.com/package/monadism"><img src="https://img.shields.io/npm/v/monadism.svg" alt="npm"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/communityfunded/monadism.svg" alt="license"></a> <a href="https://github.com/communityfunded/monadism/issues"><img src="https://img.shields.io/github/issues/communityfunded/monadism.svg" alt="GitHub issues"></a> <a href="https://github.com/communityfunded/monadism"><img src="https://img.shields.io/github/stars/communityfunded/monadism.svg?style=social" alt="github"></a></p>
-				<p>A small set of monadic Types implemented in TypeScript.</p>
+				<p>A set of practical monads implemented in TypeScript, with the goal of being easy to learn and use in daily work.</p>
 				<h2 id="installation">Installation</h2>
 				<p>Install with <a href="https://yarnpkg.com">Yarn</a>:</p>
 				<pre><code class="language-sh">yarn add monadism</code></pre>
@@ -86,12 +86,16 @@
 							<li>A value that can be either the type on the Left, or the type on the Right.</li>
 						</ul>
 					</li>
-					<li><a href="https://communityfunded.github.io/monadism/classes/_writer_.writer.html">Writer</a><ul>
-							<li>Accumulate a secondary story (S) value alongside the return value (A) of a computation.</li>
+					<li><a href="https://communityfunded.github.io/monadism/classes/_state_.state.html">State</a><ul>
+							<li>A Monad which can be used to model a single piece of mutable state (S).</li>
 						</ul>
 					</li>
-					<li><a href="https://communityfunded.github.io/monadism/classes/_state_.state.html">State</a><ul>
-							<li>A Monad which can be used to model a single piece of mutable state</li>
+					<li><a href="https://communityfunded.github.io/monadism/classes/_reader_.reader.html">Reader</a><ul>
+							<li>A computation with a return value (A) which can read values from a shared environment (E).</li>
+						</ul>
+					</li>
+					<li><a href="https://communityfunded.github.io/monadism/classes/_writer_.writer.html">Writer</a><ul>
+							<li>Accumulate a secondary story (S) value alongside the return value (A) of a computation.</li>
 						</ul>
 					</li>
 					<li><a href="https://communityfunded.github.io/monadism/classes/_signal_signal_.signal.html">Signal</a><ul>
@@ -147,6 +151,9 @@
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_maybe_.html">"<wbr>Maybe"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_reader_.html">"<wbr>Reader"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_state_.html">"<wbr>State"</a>

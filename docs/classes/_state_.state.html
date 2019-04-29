@@ -73,7 +73,7 @@
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>State is a Monad with the operations <code>get</code> and <code>put</code>, which can be used to model a single piece
-						of mutable state.</p>
+						of mutable state (S) with a return value (A).</p>
 					</div>
 				</div>
 			</section>
@@ -107,6 +107,12 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_state_.state.html#run" class="tsd-kind-icon">run</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_state_.state.html#apply" class="tsd-kind-icon">apply</a></li>
@@ -125,6 +131,45 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="run" class="tsd-anchor"></a>
+					<h3>run</h3>
+					<div class="tsd-signature tsd-kind-icon">run<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/2a1533d/src/State.ts#L11">State.ts:11</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The wrapped computation.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">]</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>s: <span class="tsd-signature-type">S</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">]</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a name="apply" class="tsd-anchor"></a>
@@ -136,7 +181,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/0320536/src/State.ts#L128">State.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/2a1533d/src/State.ts#L130">State.ts:130</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -176,7 +221,7 @@ state.eval(<span class="hljs-number">0</span>) <span class="hljs-comment">// 2</
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/0320536/src/State.ts#L75">State.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/2a1533d/src/State.ts#L77">State.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -204,7 +249,7 @@ state.eval(<span class="hljs-number">0</span>) <span class="hljs-comment">// 2</
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/0320536/src/State.ts#L80">State.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/2a1533d/src/State.ts#L82">State.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -232,7 +277,7 @@ state.eval(<span class="hljs-number">0</span>) <span class="hljs-comment">// 2</
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/0320536/src/State.ts#L93">State.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/2a1533d/src/State.ts#L95">State.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -289,7 +334,7 @@ state.eval(<span class="hljs-number">0</span>) <span class="hljs-comment">// 2</
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/0320536/src/State.ts#L110">State.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/2a1533d/src/State.ts#L112">State.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -346,7 +391,7 @@ state.exec(<span class="hljs-number">0</span>) <span class="hljs-comment">// 2</
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/0320536/src/State.ts#L26">State.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/2a1533d/src/State.ts#L28">State.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -378,7 +423,7 @@ state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 1</
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/0320536/src/State.ts#L70">State.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/2a1533d/src/State.ts#L72">State.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -437,7 +482,7 @@ state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 1</
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/0320536/src/State.ts#L57">State.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/2a1533d/src/State.ts#L59">State.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -495,7 +540,7 @@ state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 2</
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/0320536/src/State.ts#L43">State.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/2a1533d/src/State.ts#L45">State.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -532,7 +577,7 @@ state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 2</
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/0320536/src/State.ts#L38">State.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/communityfunded/monadism/blob/2a1533d/src/State.ts#L40">State.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -577,6 +622,9 @@ state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 2</
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_maybe_.html">"<wbr>Maybe"</a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_reader_.html">"<wbr>Reader"</a>
+					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="../modules/_state_.html">"<wbr>State"</a>
 					</li>
@@ -601,6 +649,9 @@ state.exec(<span class="hljs-number">1</span>) <span class="hljs-comment">// 2</
 					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_state_.state.html" class="tsd-kind-icon">State</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_state_.state.html#run" class="tsd-kind-icon">run</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="_state_.state.html#apply" class="tsd-kind-icon">apply</a>
 							</li>
