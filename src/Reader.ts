@@ -11,7 +11,7 @@ import {Apply, Functor, Monad, identity} from './Functional'
  */
 export default class Reader<E, A> implements Apply<A>, Functor<A>, Monad<A> {
   /**
-   * Run the wrapped computation.
+   * The wrapped computation.
    */
   readonly run: (env: E) => A
 
