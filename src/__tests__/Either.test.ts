@@ -55,7 +55,6 @@ describe('Either', () => {
 
   describe('fromNullable()', () => {
     it('converts a nullable to an Either', () => {
-      // tslint:disable-next-line no-null-keyword
       expect(Either.fromNullable('default', null).equals(Left('default'))).toBe(true)
       expect(Either.fromNullable('default', undefined).equals(Left('default'))).toBe(true)
       expect(Either.fromNullable('default', 1).equals(Right(1))).toBe(true)

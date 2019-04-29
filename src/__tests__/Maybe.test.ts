@@ -1,12 +1,27 @@
 import Maybe, {Just, Nothing, maybe} from '../Maybe'
 
 describe('Maybe', () => {
+  describe('Just', () => {
+    it("doesn't squash values that are intentionally undefined or null", () => {
+      expect(Just(null).equals(Nothing())).toBe(false)
+
+      // @ts-ignore
+      expect(Just(null).option).toEqual([null])
+      // @ts-ignore
+      expect(Just(undefined).option).toEqual([undefined])
+    })
+  })
+
   describe('maybe()', () => {
     it('takes an optional that may be null or undefined and returns a Maybe', () => {
       expect(Just(2).getOr(1)).toEqual(2)
       expect(Nothing().getOr(1)).toEqual(1)
-      expect(maybe<number>(null).getOr(1)).toEqual(1) // tslint:disable-line no-null-keyword
+      expect(maybe<number>(null).getOr(1)).toEqual(1)
       expect(maybe<number>(undefined).getOr(1)).toEqual(1)
+    })
+
+    it('does squash values that are undefined or null', () => {
+      expect(maybe<number>(null).equals(Nothing())).toBe(true)
     })
   })
 
