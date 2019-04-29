@@ -42,6 +42,7 @@
     "no-http-string": false,
     "no-implicit-dependencies": false,
     "no-multiline-string": false,
+    "no-null-keyword": false,
     "no-non-null-assertion": false,
     "no-relative-imports": false,
     "no-require-imports": {"severity": "warning"},

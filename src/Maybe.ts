@@ -1,4 +1,4 @@
-import {Eq, Extend, Nil, Monad, eq, exists} from './Functional'
+import {Eq, Extend, Nil, Monoid, Monad, empty, eq, exists} from './Functional'
 
 /**
  * A Maybe represents an optional value (A) with a convenient chaining syntax and strong type
@@ -28,7 +28,9 @@ import {Eq, Extend, Nil, Monad, eq, exists} from './Functional'
  *
  * @typeparam A - The type of optional value the Maybe represents.
  */
-export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
+export default class Maybe<A> implements Eq<Maybe<A>>, Monoid<A>, Monad<A>, Extend<A> {
+  empty = empty<A>()
+
   /**
    * The internal value of the Maybe
    * @ignore
@@ -40,8 +42,8 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * top of the file.
    * @ignore
    */
-  private constructor (value?: A | Nil) {
-    this.option = exists(value) ? [value!] : []
+  private constructor (value: A) {
+    this.option = [value]
   }
 
   /**
@@ -52,7 +54,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
   /**
    * Return an empty Maybe.
    */
-  static Nothing = <A>() => new Maybe<A>()
+  static Nothing = <A>() => new Maybe<A>(empty<A>())
 
   /**
    * Create a Maybe from a nullable value.
@@ -62,7 +64,8 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * maybe(undefined).getOr(1) // 1
    * ```
    */
-  static maybe = <A>(value: A | Nil) => new Maybe<A>(value)
+  static maybe = <A>(value: A | Nil): Maybe<NonNullable<A>> =>
+    exists(value) ? Just(value!) : Nothing()
 
   /**
    * An alias for `maybe`.
@@ -71,15 +74,20 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
   static fromNullable = Maybe.maybe
 
   /**
+   * Return `true` or `false` depending on whether there is Just something or Nothing.
+   */
+  isNothing = () => this.toNullable() === this.empty
+
+  /**
    * Use of this function should be discouraged. Use one of the stronger methods below in most
    * cases.
    */
   toNullable = () => this.option[0]
 
   /**
-   * Return `true` or `false` depending on whether there is Just something or Nothing.
+   * If the value is Just something, return the Boolean value of it. Otherwise, return false.
    */
-  toBoolean = () => Boolean(this.toNullable())
+  toBoolean = () => this.isNothing() ? false : Boolean(this.toNullable())
 
   /**
    * If the value of the current Maybe is Nothing, return a default value instaed.
@@ -89,11 +97,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * Nothing().getOr(1) // 1
    * ```
    */
-  getOr = (def: A) => {
-    const val = this.toNullable()
-
-    return exists(val) ? val! : def
-  }
+  getOr = (def: A): A => this.isNothing() ? def : this.toNullable()!
 
   /**
    * If the value of the current Maybe is Nothing, throw the given error message.
@@ -104,10 +108,8 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * ```
    */
   getOrThrowMessage = (message: string) => {
-    const val = this.toNullable()
-
-    if (exists(val)) {
-      return val as A
+    if (!this.isNothing()) {
+      return this.toNullable() as A
     }
 
     throw new Error(message)
@@ -140,15 +142,9 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    *
    * @typeparam B - The type of the resulting value.
    */
-  then = <B>(func: (value: A) => Maybe<B>): Maybe<B> => {
-    const val = this.toNullable()
-
-    if (exists(val)) {
-      return func(val!)
-    }
-
-    return Nothing()
-  }
+  then = <B>(func: (value: A) => Maybe<B>): Maybe<B> => !this.isNothing()
+    ? func(this.toNullable()!)
+    : Nothing()
 
   /**
    * Allows sequencing of Maybe values and functions that accept a Maybe and return a non-Maybe
@@ -161,7 +157,9 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * Nothing<number>().extend(f) // Nothing()
    * ```
    */
-  extend = <B>(func: (value: Maybe<A>) => B): Maybe<B> => maybe(func(this))
+  extend = <B>(func: (value: Maybe<A>) => B): Maybe<B> => !this.isNothing()
+   ? new Maybe(func(this))
+   : Nothing()
 
   /**
    * Take a function that maps one type to another and lift it to work with Maybes.
@@ -209,7 +207,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * Run a side effect if the value is Nothing.
    */
   unless = (callback: () => void): Maybe<A> => {
-    if (!exists(this.toNullable())) {
+    if (this.isNothing()) {
       callback()
     }
 
@@ -232,7 +230,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * Returns a Maybe for the value at the given key.
    */
   prop = <P extends keyof A>(key: P): Maybe<NonNullable<A[P]>> => this.then(
-    val => (val && key in val) ? maybe(val[key]!) : Nothing()
+    val => (val && key in val) ? maybe(val[key]) : Nothing()
   )
 
   /**
@@ -259,15 +257,12 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monad<A>, Extend<A> {
    * ```
    */
   alt = (m: Maybe<A>): Maybe<A> => {
-    const a = this.toNullable()
-    const b = m.toNullable()
-
-    if (exists(a)) {
-      return Just(a as A)
+    if (!this.isNothing()) {
+      return Just(this.toNullable() as A)
     }
 
-    if (exists(b)) {
-      return Just(b as A)
+    if (!m.isNothing()) {
+      return Just(m.toNullable() as A)
     }
 
     return Nothing()

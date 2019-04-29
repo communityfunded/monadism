@@ -85,9 +85,11 @@ export function eq<A extends Eq<A>> (a: A, b: A): boolean {
 }
 
 /**
- * Cast a string tag as an empty value, to represent emptiness without undefined.
+ * Cast a Symbol as an empty value, to represent emptiness without undefined.
  */
-export const empty = <A>() => ({_tag: 'EMPTY'}) as unknown as Empty<A>
+const emptySymbol = Symbol('MONADISM:EMPTY')
+
+export const empty = <A>() => emptySymbol as unknown as Empty<A>
 
 /**
  * Ensure a value is not `null` or `undefined`.
