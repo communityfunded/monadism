@@ -38,7 +38,6 @@ describe('State', () => {
 
   describe('gets', () => {
     it('gets a value which depends on the current state', () => {
-      // @ts-ignore - test
       expect(gets(double).run(1)).toEqual([2, 1])
     })
   })
@@ -48,10 +47,7 @@ describe('State', () => {
       // @ts-ignore - test
       const x: State<number, number> = new State((s: number) => [s - 1, s + 1])
 
-      // @ts-ignore - test
       expect(x.map(double).run(0)).toEqual([-2, 1])
-
-      const state = State.of(1).map(double)
     })
   })
 
@@ -60,7 +56,6 @@ describe('State', () => {
       const doubled = State.of(double)
       const initial = State.of(1)
 
-      // @ts-ignore - test
       expect(initial.apply(doubled).run(0)).toEqual([2, 0])
     })
   })
@@ -73,7 +68,6 @@ describe('State', () => {
       // @ts-ignore - test
       const x: State<number, number> = new State((s: number) => [s - 1, s + 1])
 
-      // @ts-ignore - test
       expect(x.then(f).run(0)).toEqual([0, 2])
     })
   })

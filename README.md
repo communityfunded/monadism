@@ -36,10 +36,12 @@ const {Just, Nothing, maybe} = require('monadism')
   * Represent optional values (A) without `null` or `undefined`.
 * [Either](https://communityfunded.github.io/monadism/classes/_either_.either.html)
   * A value that can be either the type on the Left, or the type on the Right.
+* [State](https://communityfunded.github.io/monadism/classes/_state_.state.html)
+  * A Monad which can be used to model a single piece of mutable state (S).
+* [Reader](https://communityfunded.github.io/monadism/classes/_reader_.reader.html)
+  * A computation with a return value (A) which can read values from a shared environment (E).
 * [Writer](https://communityfunded.github.io/monadism/classes/_writer_.writer.html)
   * Accumulate a secondary story (S) value alongside the return value (A) of a computation.
-* [State](https://communityfunded.github.io/monadism/classes/_state_.state.html)
-  * A Monad which can be used to model a single piece of mutable state
 * [Signal](https://communityfunded.github.io/monadism/classes/_signal_signal_.signal.html)
   * A lightweight FRP-like Monad heavily inspired by the Elm Signal.
   * Ported from [purescript-signal] by [Bodil Stokke](https://github.com/bodil).

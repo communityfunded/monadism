@@ -1,8 +1,8 @@
 import {Eq, Monad, Monoid, eq, empty} from './Functional'
 
 /**
- * The Writer monad provides the ability to accumulate a secondary Story value in addition to the
- * return value of a computation.
+ * The Writer monad provides the ability to accumulate a secondary Story (S) value in addition to
+ * the return value (A) of a computation.
  *
  * @typeparam S - The array-based value of the Story (the accumulator).
  * @typeparam A - The current return value of the computation.
