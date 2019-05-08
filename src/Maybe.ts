@@ -76,13 +76,13 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monoid<A>, Monad<A>, Exte
   /**
    * Return `true` or `false` depending on whether there is Just something or Nothing.
    */
-  isNothing = () => this.toNullable() === this.empty
+  isNothing = () => this.option[0] === this.empty
 
   /**
    * Use of this function should be discouraged. Use one of the stronger methods below in most
    * cases.
    */
-  toNullable = () => this.option[0]
+  toNullable = (): A | undefined => this.isNothing() ? undefined : this.option[0]
 
   /**
    * If the value is Just something, return the Boolean value of it. Otherwise, return false.
@@ -97,7 +97,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monoid<A>, Monad<A>, Exte
    * Nothing().getOr(1) // 1
    * ```
    */
-  getOr = (def: A): A => this.isNothing() ? def : this.toNullable()!
+  getOr = (def: A): A => this.isNothing() ? def : this.option[0]!
 
   /**
    * If the value of the current Maybe is Nothing, throw the given error message.
@@ -109,7 +109,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monoid<A>, Monad<A>, Exte
    */
   getOrThrowMessage = (message: string) => {
     if (!this.isNothing()) {
-      return this.toNullable() as A
+      return this.option[0] as A
     }
 
     throw new Error(message)
@@ -143,7 +143,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monoid<A>, Monad<A>, Exte
    * @typeparam B - The type of the resulting value.
    */
   then = <B>(func: (value: A) => Maybe<B>): Maybe<B> => !this.isNothing()
-    ? func(this.toNullable()!)
+    ? func(this.option[0]!)
     : Nothing()
 
   /**
@@ -242,8 +242,8 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monoid<A>, Monad<A>, Exte
    * ```
    */
   equals = (m: Maybe<A>): boolean => {
-    const a = this.toNullable()
-    const b = m.toNullable()
+    const a = this.option[0]
+    const b = m.option[0]
 
     return !a ? !b : !b ? false : eq(a, b)
   }
@@ -258,11 +258,11 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monoid<A>, Monad<A>, Exte
    */
   alt = (m: Maybe<A>): Maybe<A> => {
     if (!this.isNothing()) {
-      return Just(this.toNullable() as A)
+      return Just(this.option[0] as A)
     }
 
     if (!m.isNothing()) {
-      return Just(m.toNullable() as A)
+      return Just(m.option[0] as A)
     }
 
     return Nothing()
