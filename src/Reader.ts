@@ -58,7 +58,7 @@ export default class Reader<E, A> implements Apply<A>, Functor<A>, Monad<A> {
    *
    * @typeparam B - The type of the transformed return value.
    */
-  then = <B>(func: (a: A) => Reader<E, B>): Reader<E, B> =>
+  fmap = <B>(func: (a: A) => Reader<E, B>): Reader<E, B> =>
     new Reader((env: E) => func(this.run(env)).run(env))
 
   /**

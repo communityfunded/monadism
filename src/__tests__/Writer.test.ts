@@ -15,7 +15,7 @@ describe('Writer', () => {
           return unit(b)
         }
 
-        return tell([`gcd ${a} ${b}`]).then(_ => {
+        return tell([`gcd ${a} ${b}`]).fmap(_ => {
           if (a > b) {
             return gcd(a - b, b)
           }

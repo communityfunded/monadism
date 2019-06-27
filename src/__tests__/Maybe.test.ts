@@ -70,15 +70,15 @@ describe('Maybe', () => {
     })
   })
 
-  describe('then()', () => {
+  describe('fmap()', () => {
     it('maps a function that returns a new Maybe over the current Maybe', () => {
       const squareIfEven = (a: number): Maybe<number> => a % 2 === 0 ? Just(a * a) : Just(a)
 
-      const squared = Just(6).then(squareIfEven)
+      const squared = Just(6).fmap(squareIfEven)
 
       expect(squared.toNullable()).toEqual(36)
 
-      const notSquared = Just(5).then(squareIfEven)
+      const notSquared = Just(5).fmap(squareIfEven)
 
       expect(notSquared.toNullable()).toEqual(5)
     })
@@ -87,9 +87,9 @@ describe('Maybe', () => {
       const f = (n: number) => Just(n * 2)
       const g = () => Nothing<number>() // tslint:disable-line no-unnecessary-callback-wrapper
 
-      expect(Just(2).then(f).equals(Just(4))).toBe(true)
-      expect(Just(2).then(g).equals(Nothing())).toBe(true)
-      expect(Nothing<number>().then(f).equals(Nothing())).toBe(true)
+      expect(Just(2).fmap(f).equals(Just(4))).toBe(true)
+      expect(Just(2).fmap(g).equals(Nothing())).toBe(true)
+      expect(Nothing<number>().fmap(f).equals(Nothing())).toBe(true)
     })
   })
 
@@ -131,7 +131,7 @@ describe('Maybe', () => {
       expect(result.toNullable()).toEqual([{type: 'rubber'}])
 
       // This is functionally equivalent to the below, but way easier to work with!
-      const altResult = maybeGetTires.then(func => maybeCar.map(c => func(getWheels(c))))
+      const altResult = maybeGetTires.fmap(func => maybeCar.map(c => func(getWheels(c))))
 
       expect(altResult.toNullable()).toEqual([{type: 'rubber'}])
     })

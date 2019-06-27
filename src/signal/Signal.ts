@@ -78,7 +78,7 @@ export default class Signal<A> implements Monad<A> {
   /**
    * Bind a new operation to the Signal, transforming the value.
    */
-  then = <B>(func: (a: A) => Signal<B>): Signal<B> => func(this.get())
+  fmap = <B>(func: (a: A) => Signal<B>): Signal<B> => func(this.get())
 
   /**
    * Apply a function stored in another Signal to the value stored in this Signal.

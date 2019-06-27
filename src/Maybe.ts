@@ -134,15 +134,15 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monoid<A>, Monad<A>, Exte
    * ```ts
    * const squareIfEven = (a: number): Maybe<number> => a % 2 === 0 ? Just(a * a) : Just(a)
    *
-   * Just(6).then(squareIfEven) // Just(36)
+   * Just(6).fmap(squareIfEven) // Just(36)
    * ```
    *
-   * The `then` method allows you to transform the value with a function that accepts it and returns
+   * The `fmap` method allows you to transform the value with a function that accepts it and returns
    * another Maybe.
    *
    * @typeparam B - The type of the resulting value.
    */
-  then = <B>(func: (value: A) => Maybe<B>): Maybe<B> => !this.isNothing()
+  fmap = <B>(func: (value: A) => Maybe<B>): Maybe<B> => !this.isNothing()
     ? func(this.option[0]!)
     : Nothing()
 
@@ -172,7 +172,7 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monoid<A>, Monad<A>, Exte
    *
    * @typeparam B - The type of the resulting value.
    */
-  map = <B>(func: (value: A) => B): Maybe<B> => this.then(val => Just<B>(func(val)))
+  map = <B>(func: (value: A) => B): Maybe<B> => this.fmap(val => Just<B>(func(val)))
 
   /**
    * Replaces the return value with what is provided if there is Nothing.
@@ -224,12 +224,12 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monoid<A>, Monad<A>, Exte
    * Just(2).apply(Just(f)) // Just(4)
    * ```
    */
-  apply = <B>(m: Maybe<(value: A) => B>): Maybe<B> => this.then(val => m.map(func => func(val)))
+  apply = <B>(m: Maybe<(value: A) => B>): Maybe<B> => this.fmap(val => m.map(func => func(val)))
 
   /**
    * Returns a Maybe for the value at the given key.
    */
-  prop = <P extends keyof A>(key: P): Maybe<NonNullable<A[P]>> => this.then(
+  prop = <P extends keyof A>(key: P): Maybe<NonNullable<A[P]>> => this.fmap(
     val => (val && key in val) ? maybe(val[key]) : Nothing()
   )
 
