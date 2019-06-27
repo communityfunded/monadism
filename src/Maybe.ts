@@ -172,7 +172,12 @@ export default class Maybe<A> implements Eq<Maybe<A>>, Monoid<A>, Monad<A>, Exte
    *
    * @typeparam B - The type of the resulting value.
    */
-  map = <B>(func: (value: A) => B): Maybe<B> => this.fmap(val => Just<B>(func(val)))
+  map = <B>(func: (value: A) => B): Maybe<B> => this.fmap(val => {
+    // Work around a type issue with maybe() and NonNullable
+    const r = func(val)
+
+    return r ? Just(r) : Nothing()
+  })
 
   /**
    * Replaces the return value with what is provided if there is Nothing.
