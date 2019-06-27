@@ -30,7 +30,7 @@ describe('Signal', () => {
     it('yields a single value', () => {
       const check = jest.fn()
 
-      constant('lol').then(check)
+      constant('lol').fmap(check)
 
       expect(check).toHaveBeenCalledWith('lol')
     })
@@ -38,7 +38,7 @@ describe('Signal', () => {
     it('merging two constants yields the first constant', () => {
       const check = jest.fn()
 
-      constant('foo').merge(constant('bar')).then(check)
+      constant('foo').merge(constant('bar')).fmap(check)
 
       expect(check).toHaveBeenCalledWith('foo')
     })
@@ -118,7 +118,7 @@ describe('Signal', () => {
 
       const ticker = tick(1, 1, [1, 2, 3, 4, 5])
 
-      ticker.foldp(m => b => m.then(a => b.map(c => a + c)), Just(0))
+      ticker.foldp(m => b => m.fmap(a => b.map(c => a + c)), Just(0))
         // @ts-ignore - test function
         .subscribe(check)
 

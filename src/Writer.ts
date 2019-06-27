@@ -61,7 +61,7 @@ export default class Writer<S, A> implements Eq<Writer<S, A>>, Monoid<A>, Monad<
   /**
    * Applies a function to the accumulated value of a Writer.
    */
-  map = <B>(func: (a: A) => B): Writer<S, B> => this.then(value => unit<S, B>(func(value)))
+  map = <B>(func: (a: A) => B): Writer<S, B> => this.fmap(value => unit<S, B>(func(value)))
 
   /**
    * Applies a function stored as the value of another Writer to the value of this Writer.
@@ -72,7 +72,7 @@ export default class Writer<S, A> implements Eq<Writer<S, A>>, Monoid<A>, Monad<
   /**
    * Binds a new operation to this Writer.
    */
-  then = <B>(func: (a: A) => Writer<S, B>): Writer<S, B> => {
+  fmap = <B>(func: (a: A) => Writer<S, B>): Writer<S, B> => {
     const wb = func(this.value)
 
     return writer(this.story.concat(wb.story), wb.value)

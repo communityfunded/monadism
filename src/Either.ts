@@ -53,14 +53,14 @@ export default class Either<L, R> implements Monad<R>, Eq<Either<L, R>> {
 
   isRight = () => this.type === EitherType.Right
 
-  then = <B>(func: (r: R) => Either<L, B>) => this.isRight()
+  fmap = <B>(func: (r: R) => Either<L, B>) => this.isRight()
     ? func(this.right!)
     : Left<L, B>(this.left!)
 
   /**
    * Lifts functions into the Either type.
    */
-  map = <B>(func: (r: R) => B): Either<L, B> => this.then(val => Right<L, B>(func(val)))
+  map = <B>(func: (r: R) => B): Either<L, B> => this.fmap(val => Right<L, B>(func(val)))
 
   apply = <B>(m: Either<L, (r: R) => B>): Either<L, B> =>
     this.isLeft()

@@ -104,12 +104,12 @@ export default class State<S, A> implements Monad<A> {
    * ```ts
    * const double = (n: number) => n * 2
    *
-   * const state = State.of(1).then(a => put(double(a)))
+   * const state = State.of(1).fmap(a => put(double(a)))
    *
    * state.exec(0) // 2
    * ```
    */
-  then = <B>(func: (a: A) => State<S, B>) => new State<S, B>(s => {
+  fmap = <B>(func: (a: A) => State<S, B>) => new State<S, B>(s => {
     const [a, s1] = this.run(s)
 
     return func(a).run(s1)
@@ -127,7 +127,7 @@ export default class State<S, A> implements Monad<A> {
    * state.eval(0) // 2
    * ```
    */
-  apply = <B>(m: State<S, (a: A) => B>): State<S, B> => m.then(func => this.map(func))
+  apply = <B>(m: State<S, (a: A) => B>): State<S, B> => m.fmap(func => this.map(func))
 }
 
 export const get = State.get

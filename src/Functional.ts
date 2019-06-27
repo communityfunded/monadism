@@ -43,10 +43,10 @@ export interface Apply<A> extends Functor<A> {
 
 /**
  * A Monad is an operation that supports additional computations, chaining each to the end of the
- * last. Then `then` function is also known as `flatMap` or `bind` in many functional languages.
+ * last. Then `fmap` function is also known as `flatMap` or `bind` in many functional languages.
  */
 export interface Monad<A> extends Apply<A> {
-  then <B>(func: (a: A) => Monad<B>): Monad<B>
+  fmap <B>(func: (a: A) => Monad<B>): Monad<B>
 }
 
 /**

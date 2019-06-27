@@ -29,13 +29,13 @@ describe('Either', () => {
     })
   })
 
-  describe('then()', () => {
+  describe('fmap()', () => {
     it('chains Eithers together in a sequence', () => {
       const f = (s: string) => Right<string, number>(s.length)
 
-      expect(Right<string, string>('abc').then(f).equals(Right(3))).toBe(true)
-      expect(Left<string, string>('a').then(f).equals(Left('a'))).toBe(true)
-      expect(Right<string, string>('abc').then(f).equals(Right(3))).toBe(true)
+      expect(Right<string, string>('abc').fmap(f).equals(Right(3))).toBe(true)
+      expect(Left<string, string>('a').fmap(f).equals(Left('a'))).toBe(true)
+      expect(Right<string, string>('abc').fmap(f).equals(Right(3))).toBe(true)
     })
   })
 

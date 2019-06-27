@@ -20,11 +20,11 @@ describe('Reader', () => {
     expect(x.apply(f).run({})).toEqual(2)
   })
 
-  test('then()', () => {
+  test('fmap()', () => {
     const x = asks<object, string>(() => 'foo')
     const f = (s: string): Reader<object, number> => Reader.of(s.length)
 
-    expect(x.then(f).run({})).toEqual(3)
+    expect(x.fmap(f).run({})).toEqual(3)
   })
 
   test('ask()', () => {

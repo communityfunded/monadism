@@ -60,7 +60,7 @@ describe('State', () => {
     })
   })
 
-  describe('then', () => {
+  describe('fmap', () => {
     it('bind a new computation to the State, transforming the result', () => {
       // @ts-ignore - test
       const f = (_n: number): State<number, number> => new State((s: number) => [s - 1, s + 1])
@@ -68,7 +68,7 @@ describe('State', () => {
       // @ts-ignore - test
       const x: State<number, number> = new State((s: number) => [s - 1, s + 1])
 
-      expect(x.then(f).run(0)).toEqual([0, 2])
+      expect(x.fmap(f).run(0)).toEqual([0, 2])
     })
   })
 })
