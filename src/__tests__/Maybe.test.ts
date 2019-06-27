@@ -68,6 +68,14 @@ describe('Maybe', () => {
 
       expect(squared.toNullable()).toEqual(36)
     })
+
+    it('handles functions that map to undefined smoothly', () => {
+      const undef = (_n: number) => undefined
+
+      const result = Just(6).map(undef)
+
+      expect(result.equals(Nothing())).toBeTruthy()
+    })
   })
 
   describe('fmap()', () => {
